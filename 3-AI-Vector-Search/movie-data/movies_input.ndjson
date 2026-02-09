@@ -1,0 +1,50 @@
+{"title": "The Shawshank Redemption", "genre": "Drama", "description": "Two imprisoned men bond over years, finding redemption through acts of common decency", "year": 1994, "rating": 9.3, "director": "Frank Darabont"}
+{"title": "The Godfather", "genre": "Crime", "description": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son", "year": 1972, "rating": 9.2, "director": "Francis Ford Coppola"}
+{"title": "The Dark Knight", "genre": "Action", "description": "Batman must accept one of the greatest psychological tests to fight injustice", "year": 2008, "rating": 9.0, "director": "Christopher Nolan"}
+{"title": "Schindler's List", "genre": "Drama", "description": "In German-occupied Poland, industrialist Oskar Schindler saves Jewish refugees", "year": 1993, "rating": 9.0, "director": "Steven Spielberg"}
+{"title": "Pulp Fiction", "genre": "Crime", "description": "The lives of two mob hitmen, a boxer, and a pair of diner bandits intertwine", "year": 1994, "rating": 8.9, "director": "Quentin Tarantino"}
+{"title": "The Lord of the Rings: The Return of the King", "genre": "Fantasy", "description": "Gandalf and Aragorn lead the World of Men against Sauron's army", "year": 2003, "rating": 9.0, "director": "Peter Jackson"}
+{"title": "Forrest Gump", "genre": "Drama", "description": "The presidencies of Kennedy and Johnson unfold through the perspective of an Alabama man", "year": 1994, "rating": 8.8, "director": "Robert Zemeckis"}
+{"title": "Inception", "genre": "Sci-Fi", "description": "A thief who steals corporate secrets through dream-sharing technology", "year": 2010, "rating": 8.8, "director": "Christopher Nolan"}
+{"title": "Fight Club", "genre": "Drama", "description": "An insomniac office worker and a soap salesman form an underground fight club", "year": 1999, "rating": 8.8, "director": "David Fincher"}
+{"title": "The Matrix", "genre": "Sci-Fi", "description": "A computer hacker learns about the true nature of reality and his role in the war", "year": 1999, "rating": 8.7, "director": "Lana Wachowski"}
+{"title": "Goodfellas", "genre": "Crime", "description": "The story of Henry Hill and his life in the mob covering his relationship with his wife", "year": 1990, "rating": 8.7, "director": "Martin Scorsese"}
+{"title": "Star Wars: Episode V", "genre": "Sci-Fi", "description": "After the Rebels are overpowered by the Empire, Luke Skywalker begins Jedi training", "year": 1980, "rating": 8.7, "director": "Irvin Kershner"}
+{"title": "Interstellar", "genre": "Sci-Fi", "description": "A team of explorers travel through a wormhole in space to ensure humanity's survival", "year": 2014, "rating": 8.6, "director": "Christopher Nolan"}
+{"title": "Parasite", "genre": "Thriller", "description": "A poor family schemes to become employed by a wealthy family", "year": 2019, "rating": 8.5, "director": "Bong Joon-ho"}
+{"title": "The Lion King", "genre": "Animation", "description": "A lion cub prince flees his kingdom only to learn the true meaning of responsibility", "year": 1994, "rating": 8.5, "director": "Roger Allers"}
+{"title": "The Avengers", "genre": "Action", "description": "Earth's mightiest heroes must come together to stop an alien invasion", "year": 2012, "rating": 8.0, "director": "Joss Whedon"}
+{"title": "Toy Story", "genre": "Animation", "description": "A cowboy doll is profoundly threatened when a new spaceman figure supplants him", "year": 1995, "rating": 8.3, "director": "John Lasseter"}
+{"title": "Saving Private Ryan", "genre": "War", "description": "Following the Normandy landings, a group is sent to find a paratrooper", "year": 1998, "rating": 8.6, "director": "Steven Spielberg"}
+{"title": "The Green Mile", "genre": "Drama", "description": "The lives of guards on Death Row are affected by one of their charges", "year": 1999, "rating": 8.6, "director": "Frank Darabont"}
+{"title": "The Silence of the Lambs", "genre": "Thriller", "description": "A young FBI cadet must receive help from a cannibalistic killer", "year": 1991, "rating": 8.6, "director": "Jonathan Demme"}
+{"title": "Se7en", "genre": "Thriller", "description": "Two detectives hunt a serial killer who uses the seven deadly sins as his motives", "year": 1995, "rating": 8.6, "director": "David Fincher"}
+{"title": "The Pianist", "genre": "Drama", "description": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto", "year": 2002, "rating": 8.5, "director": "Roman Polanski"}
+{"title": "Gladiator", "genre": "Action", "description": "A former Roman General sets out to exact vengeance against the corrupt emperor", "year": 2000, "rating": 8.5, "director": "Ridley Scott"}
+{"title": "The Departed", "genre": "Crime", "description": "An undercover cop and a mole in the police try to identify each other", "year": 2006, "rating": 8.5, "director": "Martin Scorsese"}
+{"title": "The Prestige", "genre": "Drama", "description": "Two stage magicians engage in competitive one-upmanship with tragic results", "year": 2006, "rating": 8.5, "director": "Christopher Nolan"}
+{"title": "Whiplash", "genre": "Drama", "description": "A promising young drummer enrolls at a cut-throat music conservatory", "year": 2014, "rating": 8.5, "director": "Damien Chazelle"}
+{"title": "The Intouchables", "genre": "Comedy", "description": "After becoming a quadriplegic, an aristocrat hires a young caregiver", "year": 2011, "rating": 8.5, "director": "Olivier Nakache"}
+{"title": "The Grand Budapest Hotel", "genre": "Comedy", "description": "A legendary concierge at a famous hotel and his protégé", "year": 2014, "rating": 8.1, "director": "Wes Anderson"}
+{"title": "Spirited Away", "genre": "Animation", "description": "A young girl enters a world ruled by gods, witches, and spirits", "year": 2001, "rating": 8.6, "director": "Hayao Miyazaki"}
+{"title": "Jurassic Park", "genre": "Adventure", "description": "A pragmatic paleontologist touring a theme park gets trapped after a power failure", "year": 1993, "rating": 8.2, "director": "Steven Spielberg"}
+{"title": "Braveheart", "genre": "War", "description": "Scottish warrior William Wallace leads his countrymen in rebellion", "year": 1995, "rating": 8.3, "director": "Mel Gibson"}
+{"title": "Avatar", "genre": "Sci-Fi", "description": "A paraplegic Marine on an alien moon finds himself torn between two worlds", "year": 2009, "rating": 7.9, "director": "James Cameron"}
+{"title": "The Truman Show", "genre": "Drama", "description": "An insurance salesman discovers his whole life is actually a reality TV show", "year": 1998, "rating": 8.2, "director": "Peter Weir"}
+{"title": "Amélie", "genre": "Comedy", "description": "A shy waitress decides to change the lives of those around her", "year": 2001, "rating": 8.3, "director": "Jean-Pierre Jeunet"}
+{"title": "Casino Royale", "genre": "Action", "description": "James Bond's first mission as 007 leads him to a terrorist financier", "year": 2006, "rating": 8.0, "director": "Martin Campbell"}
+{"title": "Mad Max: Fury Road", "genre": "Action", "description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler", "year": 2015, "rating": 8.1, "director": "George Miller"}
+{"title": "Catch Me If You Can", "genre": "Crime", "description": "A seasoned FBI agent pursues a con artist who assumes different identities", "year": 2002, "rating": 8.1, "director": "Steven Spielberg"}
+{"title": "The Shining", "genre": "Horror", "description": "A family heads to an isolated hotel where an evil presence influences the father", "year": 1980, "rating": 8.4, "director": "Stanley Kubrick"}
+{"title": "Joker", "genre": "Drama", "description": "A mentally troubled comedian embarks on a downward spiral of revolution", "year": 2019, "rating": 8.4, "director": "Todd Phillips"}
+{"title": "Bohemian Rhapsody", "genre": "Biography", "description": "The story of the legendary rock band Queen and lead singer Freddie Mercury", "year": 2018, "rating": 7.9, "director": "Bryan Singer"}
+{"title": "La La Land", "genre": "Romance", "description": "A jazz pianist and an aspiring actress fall in love while pursuing their dreams", "year": 2016, "rating": 8.0, "director": "Damien Chazelle"}
+{"title": "Titanic", "genre": "Romance", "description": "A seventeen-year-old aristocrat falls in love with a kind artist aboard the Titanic", "year": 1997, "rating": 7.9, "director": "James Cameron"}
+{"title": "The Incredibles", "genre": "Animation", "description": "A family of undercover superheroes tries to live a quiet suburban life", "year": 2004, "rating": 8.0, "director": "Brad Bird"}
+{"title": "Finding Nemo", "genre": "Animation", "description": "A clownfish searches for his captured son with help from a forgetful fish", "year": 2003, "rating": 8.2, "director": "Andrew Stanton"}
+{"title": "Deadpool", "genre": "Action", "description": "A wisecracking mercenary with accelerated healing powers hunts the man who ruined his life", "year": 2016, "rating": 8.0, "director": "Tim Miller"}
+{"title": "The Hangover", "genre": "Comedy", "description": "Three friends wake up from a bachelor party in Las Vegas with no memory", "year": 2009, "rating": 7.7, "director": "Todd Phillips"}
+{"title": "Frozen", "genre": "Animation", "description": "A fearless princess sets off on a journey to find her sister and save the kingdom", "year": 2013, "rating": 7.4, "director": "Chris Buck"}
+{"title": "Black Panther", "genre": "Action", "description": "The king of Wakanda fights to protect his nation from enemies", "year": 2018, "rating": 7.3, "director": "Ryan Coogler"}
+{"title": "Moonlight", "genre": "Drama", "description": "A young African-American man grapples with his identity and sexuality", "year": 2016, "rating": 7.4, "director": "Barry Jenkins"}
+{"title": "Get Out", "genre": "Horror", "description": "A young African-American visits his white girlfriend's family estate", "year": 2017, "rating": 7.8, "director": "Jordan Peele"}

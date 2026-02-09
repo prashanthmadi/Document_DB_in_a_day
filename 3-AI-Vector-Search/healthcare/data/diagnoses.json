@@ -1,0 +1,152 @@
+[
+  {
+    "diagnosisId": "DX001",
+    "patientId": "PT001",
+    "icd10Code": "I48.91",
+    "conditionName": "Atrial Fibrillation",
+    "diagnosedDate": "2023-08-15",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "Patient presented with irregular heart rhythm and palpitations. ECG confirmed atrial fibrillation with rapid ventricular response."
+  },
+  {
+    "diagnosisId": "DX002",
+    "patientId": "PT001",
+    "icd10Code": "I10",
+    "conditionName": "Essential Hypertension",
+    "diagnosedDate": "2020-03-22",
+    "severity": "Mild",
+    "status": "Active",
+    "notes": "Well-controlled on medication. Blood pressure averages 135/85 mmHg."
+  },
+  {
+    "diagnosisId": "DX003",
+    "patientId": "PT002",
+    "icd10Code": "E11.9",
+    "conditionName": "Type 2 Diabetes Mellitus",
+    "diagnosedDate": "2019-11-05",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "HbA1c 7.8%. Patient struggles with dietary compliance. Started on metformin and lifestyle modifications."
+  },
+  {
+    "diagnosisId": "DX004",
+    "patientId": "PT002",
+    "icd10Code": "E78.5",
+    "conditionName": "Hyperlipidemia",
+    "diagnosedDate": "2020-02-14",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "LDL cholesterol 165 mg/dL. Started on statin therapy with good response."
+  },
+  {
+    "diagnosisId": "DX005",
+    "patientId": "PT003",
+    "icd10Code": "F32.1",
+    "conditionName": "Major Depressive Disorder, Moderate",
+    "diagnosedDate": "2024-01-20",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "PHQ-9 score of 15. Postpartum onset following birth of second child. Started on SSRI and referred to therapy."
+  },
+  {
+    "diagnosisId": "DX006",
+    "patientId": "PT004",
+    "icd10Code": "G30.9",
+    "conditionName": "Alzheimer's Disease",
+    "diagnosedDate": "2022-06-10",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "MMSE score 18/30. Progressive memory decline over 3 years. Amyloid PET positive. Started on cholinesterase inhibitor."
+  },
+  {
+    "diagnosisId": "DX007",
+    "patientId": "PT004",
+    "icd10Code": "I25.10",
+    "conditionName": "Coronary Artery Disease",
+    "diagnosedDate": "2018-09-28",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "History of MI in 2018. Two stents placed. Completed cardiac rehab. On dual antiplatelet therapy."
+  },
+  {
+    "diagnosisId": "DX008",
+    "patientId": "PT005",
+    "icd10Code": "J45.40",
+    "conditionName": "Moderate Persistent Asthma",
+    "diagnosedDate": "2015-04-12",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "Requires daily controller medication. Uses albuterol 2-3 times per week. No recent exacerbations."
+  },
+  {
+    "diagnosisId": "DX009",
+    "patientId": "PT006",
+    "icd10Code": "M79.7",
+    "conditionName": "Fibromyalgia",
+    "diagnosedDate": "2021-07-18",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "Widespread musculoskeletal pain and fatigue. Positive tender point examination. Manages with duloxetine and physical therapy."
+  },
+  {
+    "diagnosisId": "DX010",
+    "patientId": "PT006",
+    "icd10Code": "M15.9",
+    "conditionName": "Osteoarthritis",
+    "diagnosedDate": "2019-03-05",
+    "severity": "Mild",
+    "status": "Active",
+    "notes": "Bilateral knee osteoarthritis. X-ray shows joint space narrowing. Conservative management with NSAIDs and physical therapy."
+  },
+  {
+    "diagnosisId": "DX011",
+    "patientId": "PT007",
+    "icd10Code": "K50.90",
+    "conditionName": "Crohn's Disease",
+    "diagnosedDate": "2010-11-30",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "Ileocolonic involvement. Treated with biologics. Recent flare managed with corticosteroids."
+  },
+  {
+    "diagnosisId": "DX012",
+    "patientId": "PT008",
+    "icd10Code": "C43.9",
+    "conditionName": "Malignant Melanoma",
+    "diagnosedDate": "2023-05-22",
+    "severity": "Moderate",
+    "status": "In Remission",
+    "notes": "Stage IIB melanoma excised from back. Negative sentinel lymph node biopsy. Completed adjuvant immunotherapy."
+  },
+  {
+    "diagnosisId": "DX013",
+    "patientId": "PT009",
+    "icd10Code": "M81.0",
+    "conditionName": "Osteoporosis",
+    "diagnosedDate": "2021-10-08",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "DEXA scan T-score -2.8 at lumbar spine. Postmenopausal. Started on bisphosphonate therapy and calcium/vitamin D."
+  },
+  {
+    "diagnosisId": "DX014",
+    "patientId": "PT009",
+    "icd10Code": "E03.9",
+    "conditionName": "Hypothyroidism",
+    "diagnosedDate": "2017-02-15",
+    "severity": "Mild",
+    "status": "Active",
+    "notes": "TSH elevated at 8.5. Well-controlled on levothyroxine 75 mcg daily. Annual monitoring."
+  },
+  {
+    "diagnosisId": "DX015",
+    "patientId": "PT010",
+    "icd10Code": "F90.2",
+    "conditionName": "ADHD, Combined Type",
+    "diagnosedDate": "2010-09-01",
+    "severity": "Moderate",
+    "status": "Active",
+    "notes": "Diagnosed in childhood, continues to adulthood. Managed with stimulant medication and behavioral strategies."
+  }
+]

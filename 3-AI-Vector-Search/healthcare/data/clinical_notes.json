@@ -1,0 +1,98 @@
+[
+  {
+    "noteId": "CN001",
+    "patientId": "PT001",
+    "noteDate": "2023-08-15",
+    "noteType": "Emergency Admission",
+    "attendingPhysician": "Dr. Sarah Williams",
+    "noteText": "67-year-old female presented to ED with chief complaint of palpitations and lightheadedness for past 6 hours. Patient reports sudden onset of irregular heartbeat while at rest. Associated symptoms include mild dyspnea and anxiety. Denies chest pain, syncope, or previous episodes. Medical history significant for hypertension, well-controlled on ACE inhibitor. Vital signs: BP 142/88, HR 138 irregular, RR 18, SpO2 97% on room air. Physical exam notable for irregularly irregular rhythm, no murmurs. ECG shows atrial fibrillation with rapid ventricular response, rate 130-145 bpm. No acute ST changes. Labs: troponin negative, TSH normal, electrolytes within normal limits. Patient admitted for rate control and anticoagulation initiation. Started on IV metoprolol with improvement in heart rate to 80s. Cardiology consulted. Will initiate warfarin after discussion of stroke risk versus bleeding risk using CHA2DS2-VASc score of 3. Patient educated about AFib, stroke risk, and importance of anticoagulation. Family notified and supportive."
+  },
+  {
+    "noteId": "CN002",
+    "patientId": "PT001",
+    "noteDate": "2023-08-17",
+    "noteType": "Progress Note",
+    "attendingPhysician": "Dr. Sarah Williams",
+    "noteText": "Hospital day 3. Patient's atrial fibrillation well-controlled on oral metoprolol 50mg BID. Heart rate 70-85, blood pressure stable. Warfarin initiated, INR 1.2 today. Bridging with enoxaparin until therapeutic INR achieved. Patient ambulating without difficulty, no dyspnea or palpitations. Echocardiogram performed showing normal LV function, EF 60%, mild LA enlargement. No valvular abnormalities. Patient education reinforced regarding medication compliance, INR monitoring schedule, and dietary considerations with warfarin. Arranged follow-up with cardiology in 1 week and with anticoagulation clinic in 3 days for INR check. Patient understands signs of bleeding to watch for. Discharge planned for tomorrow if stable overnight."
+  },
+  {
+    "noteId": "CN003",
+    "patientId": "PT002",
+    "noteDate": "2024-03-10",
+    "noteType": "Office Visit",
+    "attendingPhysician": "Dr. Michael Chang",
+    "noteText": "48-year-old male here for diabetes management follow-up. Patient reports fair adherence to dietary modifications but admits difficulty with portion control and frequent restaurant meals. HbA1c today 7.8%, up from 7.4% three months ago. Fasting glucose log shows values ranging 140-180 mg/dL. Currently on metformin 1000mg BID. Patient denies polyuria, polydipsia, or weight changes. Blood pressure elevated today at 145/92, repeat 142/90. Lipid panel: total cholesterol 240, LDL 165, HDL 38, triglycerides 320. Comprehensive foot exam: intact sensation to monofilament, pulses palpable, no lesions. Eye exam scheduled for next month. Discussed intensification of therapy. Will add GLP-1 agonist for both glycemic control and cardiovascular benefit given elevated BP and lipids. Starting semaglutide 0.25mg weekly, titrate up. Referred to dietitian for comprehensive nutrition counseling. Prescribed atorvastatin 40mg for dyslipidemia. Home BP monitoring encouraged. Return visit in 6 weeks to assess response to new medications."
+  },
+  {
+    "noteId": "CN004",
+    "patientId": "PT003",
+    "noteDate": "2024-01-20",
+    "noteType": "Psychiatric Evaluation",
+    "attendingPhysician": "Dr. Sarah Williams",
+    "noteText": "42-year-old female presenting with depressed mood for 3 months. Onset coincided with birth of second child. Patient reports pervasive sadness, anhedonia, difficulty bonding with infant, excessive guilt about parenting abilities. Sleep disturbed by infant care but also notes middle insomnia when infant sleeping. Decreased appetite with 8-pound unintentional weight loss. Fatigue and poor concentration affecting work performance. Denies suicidal ideation but reports passive death wishes. PHQ-9 score 15 indicating moderate depression. Edinburgh Postnatal Depression Scale 16. No previous psychiatric history. No current substance use. Family history positive for maternal depression. Supportive partner involved in care. Mental status exam: appropriate appearance, cooperative, depressed mood and constricted affect, linear thought process, denies SI/HI, fair insight and judgment. Diagnosis: major depressive disorder, postpartum onset, moderate severity. Initiated sertraline 50mg daily, plan to increase to 100mg in 2 weeks. Referred to postpartum support group and individual therapy. Discussed safety planning and importance of partner support. Close follow-up scheduled in 2 weeks to monitor response and side effects."
+  },
+  {
+    "noteId": "CN005",
+    "patientId": "PT004",
+    "noteDate": "2022-06-10",
+    "noteType": "Neurology Consultation",
+    "attendingPhysician": "Dr. David Kim",
+    "noteText": "79-year-old male referred for progressive memory decline. Family reports 3-year history of gradually worsening short-term memory, repetitive questioning, difficulty with finances and medications. Patient has gotten lost driving in familiar areas twice. Mood changes including apathy and irritability. ADLs largely intact but IADLs declining. Patient minimizes symptoms but clearly impaired on interview. MMSE 18/30 with deficits in recall, orientation, and executive function. MoCA 14/30. Neurological exam otherwise unremarkable, normal gait and cranial nerves. MRI brain shows generalized atrophy, particularly hippocampal, white matter changes consistent with small vessel disease. Amyloid PET scan positive. Labs including B12, folate, TSH, and comprehensive metabolic panel normal. Diagnosis: Alzheimer's disease, moderate stage. Discussed disease course, prognosis, and available treatments with patient and family. Initiated donepezil 5mg daily, increase to 10mg in 4 weeks. Discussed non-pharmacologic interventions including cognitive engagement, physical activity, sleep hygiene. Provided resources for caregiver support. Addressed advance care planning and legal/financial considerations. Follow-up in 3 months to assess medication response."
+  },
+  {
+    "noteId": "CN006",
+    "patientId": "PT005",
+    "noteDate": "2024-05-15",
+    "noteType": "Pulmonary Follow-up",
+    "attendingPhysician": "Dr. Emily Rodriguez",
+    "noteText": "34-year-old female with moderate persistent asthma for routine follow-up. Patient reports good overall control on current regimen of fluticasone/salmeterol 250/50 BID and albuterol PRN. Uses rescue inhaler 2-3 times weekly, mostly with exercise. No recent exacerbations or ED visits. No nocturnal symptoms. Able to participate in all desired activities. Peak flow diary shows values 85-95% of personal best. Spirometry today: FEV1 82% predicted, FVC 91% predicted, FEV1/FVC ratio 0.75. Post-bronchodilator improvement of 15% confirms reversible obstruction. Inhaler technique reviewed and appropriate. Asthma control test score 21 indicating well-controlled disease. Discussed environmental triggers including pet dander and seasonal allergies. Already using allergen-proof bedding covers. Continue current controller medication. Reviewed asthma action plan, patient demonstrates good understanding. Encouraged continued pre-medication with albuterol before exercise. Annual influenza vaccination completed. Follow-up in 6 months or sooner if symptoms worsen."
+  },
+  {
+    "noteId": "CN007",
+    "patientId": "PT006",
+    "noteDate": "2021-07-18",
+    "noteType": "Rheumatology Consultation",
+    "attendingPhysician": "Dr. Michael Chang",
+    "noteText": "57-year-old male referred for evaluation of chronic widespread pain. Patient describes 2-year history of diffuse musculoskeletal pain involving neck, shoulders, lower back, and hips. Pain rated 7/10 most days. Associated profound fatigue, unrefreshing sleep, cognitive difficulties ('fibro fog'). Morning stiffness lasting 1-2 hours. Patient feels exhausted despite 8 hours in bed. Symptoms worse with stress and weather changes. No joint swelling or objective weakness. Previous work-up including ESR, CRP, ANA, RF, anti-CCP all negative. TSH and vitamin D normal. Physical exam notable for multiple tender points - 16 of 18 positive including occiput, low cervical, trapezius, supraspinatus, 2nd rib, lateral epicondyle, gluteal, greater trochanter, and knees bilaterally. Full range of motion all joints. No synovitis. Widespread pain index 15, symptom severity score 9. Diagnosis: fibromyalgia. Discussed chronic pain neurobiology and centralized pain mechanisms. Treatment plan: initiated duloxetine 30mg daily, titrate to 60mg for central pain modulation. Referred to physical therapy for graded exercise program. Sleep hygiene counseling provided. Discussed cognitive behavioral therapy for pain management. Patient education materials provided. Follow-up in 6 weeks to assess medication response."
+  },
+  {
+    "noteId": "CN008",
+    "patientId": "PT007",
+    "noteDate": "2024-02-28",
+    "noteType": "Gastroenterology Follow-up",
+    "attendingPhysician": "Dr. Sarah Williams",
+    "noteText": "69-year-old female with ileocolonic Crohn's disease since 2010. Doing well on adalimumab 40mg every 2 weeks. Patient reports 1-2 formed bowel movements daily, no blood or mucus. Abdominal pain minimal. Appetite good with stable weight. Recent mild flare 3 months ago managed with brief prednisone course. Surveillance colonoscopy last month showed moderate inflammation in terminal ileum with ulceration, though improved from prior exam. Biopsies confirmed active Crohn's. No dysplasia. CRP today 2.8 mg/L, mild elevation. Fecal calprotectin 180. Comprehensive metabolic panel normal, albumin 4.1. Patient adherent to medication, no injection site reactions. No current infection symptoms. Tolerating regular diet, avoids only popcorn and nuts which trigger symptoms. Bone density scan shows osteopenia, added calcium and vitamin D supplementation. Discussed optimization of therapy given persistent inflammation. Options include increasing adalimumab frequency to weekly or switching to different biologic. Patient prefers to continue current regimen given clinical improvement. Will recheck inflammatory markers in 8 weeks. Colonoscopy in 1 year. Maintain vigilance for complications including abscess or stricture."
+  },
+  {
+    "noteId": "CN009",
+    "patientId": "PT008",
+    "noteDate": "2023-05-22",
+    "noteType": "Dermatology Procedure Note",
+    "attendingPhysician": "Dr. David Kim",
+    "noteText": "46-year-old male presenting for evaluation of changing mole on upper back. Patient noted lesion enlarging and darkening over past 6 months. Denies bleeding or itching. History of significant sun exposure in youth, multiple sunburns. No family history of melanoma. Examination reveals 1.8 cm irregularly pigmented lesion at right scapular region. Asymmetric borders, variegated color including brown, black, and areas of regression. Concerning for melanoma. Dermoscopy shows atypical network, blue-white veil, and irregular dots/globules. Full skin exam reveals numerous benign nevi and solar lentigines. No palpable lymphadenopathy. Discussed high suspicion for melanoma and need for excisional biopsy with margins. Procedure explained including risks of bleeding, infection, scarring. Consent obtained. Wide local excision performed under local anesthesia with 2mm margins. Specimen to pathology. Estimated depth 2.5mm based on clinical appearance. If melanoma confirmed, will need re-excision with wider margins and sentinel lymph node biopsy. Patient educated about sun protection and regular self-skin exams. Follow-up scheduled in 1 week for pathology results and wound check."
+  },
+  {
+    "noteId": "CN010",
+    "patientId": "PT008",
+    "noteDate": "2023-06-05",
+    "noteType": "Oncology Consultation",
+    "attendingPhysician": "Dr. David Kim",
+    "noteText": "Pathology confirms invasive melanoma, Breslow thickness 2.3mm, no ulceration. Clark level IV. Mitotic rate 4/mm2. Margins clear but narrow. Stage IIB (T3aN0M0). Patient returns for treatment planning. Discussed prognosis - 5-year survival approximately 70% for stage IIB. Recommended re-excision with 1-2cm margins and sentinel lymph node biopsy given depth >1mm. Procedure scheduled for next week. CT chest/abdomen/pelvis ordered for staging, no evidence of metastatic disease. Labs including LDH normal. If sentinel nodes negative, will recommend adjuvant immunotherapy with nivolumab or pembrolizumab for 12 months to reduce recurrence risk. Recent trials show 50% reduction in recurrence with adjuvant checkpoint inhibitors. Discussed potential side effects including immune-related adverse events. Patient agreeable to treatment plan. Provided educational materials about melanoma. Emphasized importance of sun protection and surveillance. Referred to support group. Family very involved and supportive."
+  },
+  {
+    "noteId": "CN011",
+    "patientId": "PT009",
+    "noteDate": "2021-10-08",
+    "noteType": "Endocrinology Consultation",
+    "attendingPhysician": "Dr. Emily Rodriguez",
+    "noteText": "62-year-old postmenopausal female referred for osteoporosis management. DEXA scan shows T-score -2.8 at lumbar spine (L1-L4), -2.5 at femoral neck, -1.9 at total hip. Fragility fracture of distal radius 1 year ago after fall from standing height. Risk factors include thin body habitus (BMI 19), family history (mother with hip fracture), early menopause at age 49. No history of hormone replacement therapy. Calcium intake low at 400-500mg daily from diet. Rarely gets sun exposure. Labs: 25-OH vitamin D 18 ng/mL (deficient), calcium 9.2, phosphorus 3.8, alkaline phosphatase 78, PTH 65 (upper normal), TSH normal. Secondary causes evaluated: negative for celiac disease, normal cortisol. FRAX score: 10-year major osteoporotic fracture risk 18%, hip fracture risk 4.2%. High risk category. Treatment plan: initiated alendronate 70mg weekly. Calcium carbonate 1200mg daily with vitamin D3 2000 IU daily. Weight-bearing exercise program recommended. Fall prevention assessment including home safety evaluation. Discussed medication administration - take first thing in morning on empty stomach with full glass of water, remain upright 30 minutes. Follow-up DEXA in 2 years to assess response."
+  },
+  {
+    "noteId": "CN012",
+    "patientId": "PT010",
+    "noteType": "Office Visit",
+    "noteDate": "2024-07-15",
+    "attendingPhysician": "Dr. Michael Chang",
+    "noteText": "39-year-old male with ADHD since childhood for medication management follow-up. Currently on methylphenidate ER 36mg daily taken in morning. Patient reports good symptom control with improved focus and task completion at work. Able to manage multiple projects simultaneously. No significant side effects. Sleep quality good, appetite normal. Blood pressure 118/76, heart rate 72. Weight stable. Patient inquires about driving safety with stimulant medication - educated that properly treated ADHD actually improves driving performance. Discussed importance of medication adherence and not sharing medications. Working with therapist on organizational strategies and time management. Using calendar apps and reminders effectively. Relationship with partner improved with better communication. No concerns for substance misuse. Review of systems otherwise negative. Plan: continue current medication regimen. Prescription refilled for 3 months with one refill. Annual cardiac screening ECG ordered per guidelines. Return visit in 3 months or sooner if any concerns arise."
+  }
+]

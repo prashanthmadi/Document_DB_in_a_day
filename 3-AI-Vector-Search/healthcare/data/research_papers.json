@@ -1,0 +1,202 @@
+[
+  {
+    "pmid": "35789012",
+    "title": "Machine Learning Approaches for Early Detection of Atrial Fibrillation",
+    "abstract": "Atrial fibrillation (AF) is the most common cardiac arrhythmia and a major risk factor for stroke. Early detection is crucial for timely intervention. This study explores machine learning models trained on ECG data from 5,000 patients to predict AF onset. We achieved 94% accuracy using ensemble methods combining random forests and neural networks. The model identifies subtle pattern changes in heart rhythm that precede clinical AF by up to 6 months. Feature importance analysis revealed that heart rate variability metrics and P-wave morphology were the strongest predictors. Our findings suggest that ML-based screening could enable preventive anticoagulation therapy before symptomatic AF develops.",
+    "authors": ["Zhang L", "Martinez R", "Johnson K", "Patel S"],
+    "publicationYear": 2024,
+    "journal": "Journal of Cardiovascular Medicine",
+    "keywords": ["atrial fibrillation", "machine learning", "early detection", "ECG analysis", "stroke prevention"],
+    "citationCount": 47
+  },
+  {
+    "pmid": "35892341",
+    "title": "Impact of Mediterranean Diet on Type 2 Diabetes Management",
+    "abstract": "Type 2 diabetes mellitus affects over 500 million people globally. Dietary interventions play a crucial role in glycemic control. This randomized controlled trial evaluated the Mediterranean diet's effects on HbA1c levels in 800 patients over 12 months. Participants following the Mediterranean diet showed a mean HbA1c reduction of 1.2% compared to 0.4% in the control group. Additionally, we observed significant improvements in lipid profiles, with LDL cholesterol decreasing by 18% and HDL increasing by 12%. Weight loss averaged 5.3 kg in the intervention group. The diet's high content of monounsaturated fats, fiber, and antioxidants appears to improve insulin sensitivity and reduce inflammation.",
+    "authors": ["Rossi M", "Kumar A", "Thompson J"],
+    "publicationYear": 2024,
+    "journal": "Diabetes Care",
+    "keywords": ["type 2 diabetes", "Mediterranean diet", "glycemic control", "HbA1c", "nutrition"],
+    "citationCount": 89
+  },
+  {
+    "pmid": "35743289",
+    "title": "Novel Biomarkers for Alzheimer's Disease Progression",
+    "abstract": "Alzheimer's disease (AD) diagnosis currently relies on cognitive testing and neuroimaging, often detecting disease after significant neuronal loss. We investigated plasma biomarkers in 1,200 patients across AD spectrum. Our study identified a panel of 7 proteins (including pTau-217, NfL, and GFAP) that predict progression from mild cognitive impairment to AD dementia with 91% accuracy. These biomarkers showed changes up to 3 years before clinical symptoms. Combining plasma biomarkers with amyloid PET imaging increased diagnostic accuracy to 96%. The non-invasive nature of blood-based biomarkers could revolutionize AD screening and enable earlier therapeutic interventions.",
+    "authors": ["Chen W", "Anderson B", "Garcia M", "Lee H"],
+    "publicationYear": 2024,
+    "journal": "Nature Neuroscience",
+    "keywords": ["Alzheimer's disease", "biomarkers", "early diagnosis", "plasma proteins", "neurodegeneration"],
+    "citationCount": 156
+  },
+  {
+    "pmid": "35821456",
+    "title": "Effectiveness of Telehealth for Chronic Pain Management",
+    "abstract": "Chronic pain affects 20% of adults and poses significant treatment challenges. The COVID-19 pandemic accelerated telehealth adoption. This multi-center study evaluated telehealth effectiveness for chronic pain management in 2,500 patients over 18 months. Pain intensity scores decreased comparably between telehealth (32% reduction) and in-person care (35% reduction). Patient satisfaction was higher in telehealth (87% vs 79%), with improved treatment adherence due to reduced travel burden. Telehealth enabled more frequent check-ins and real-time medication adjustments. However, certain procedures requiring physical examination remained limited. Our findings support telehealth as a viable alternative for most chronic pain management.",
+    "authors": ["Williams T", "Brown K", "Singh R"],
+    "publicationYear": 2023,
+    "journal": "Pain Medicine",
+    "keywords": ["chronic pain", "telehealth", "telemedicine", "pain management", "patient outcomes"],
+    "citationCount": 72
+  },
+  {
+    "pmid": "35678923",
+    "title": "Immunotherapy Combinations in Metastatic Melanoma",
+    "abstract": "Metastatic melanoma has historically poor prognosis, but immunotherapy has transformed treatment paradigms. This phase III trial compared combination ipilimumab plus nivolumab versus nivolumab monotherapy in 950 patients with advanced melanoma. The combination therapy achieved 58% overall response rate versus 44% for monotherapy. Median progression-free survival was 11.5 months versus 6.9 months. Five-year overall survival reached 52% in the combination arm. Grade 3-4 adverse events occurred in 59% of combination patients versus 23% on monotherapy, primarily immune-related colitis and hepatitis. Predictive biomarkers including tumor mutational burden and PD-L1 expression helped identify patients most likely to benefit from combination therapy.",
+    "authors": ["Taylor E", "Nguyen P", "Roberts A", "Miller D"],
+    "publicationYear": 2024,
+    "journal": "The Lancet Oncology",
+    "keywords": ["melanoma", "immunotherapy", "nivolumab", "ipilimumab", "checkpoint inhibitors"],
+    "citationCount": 203
+  },
+  {
+    "pmid": "35567834",
+    "title": "Gut Microbiome Alterations in Inflammatory Bowel Disease",
+    "abstract": "Inflammatory bowel disease (IBD), including Crohn's disease and ulcerative colitis, involves complex interactions between host immunity and gut microbiota. We performed metagenomic sequencing on fecal samples from 600 IBD patients and 400 healthy controls. IBD patients showed reduced microbial diversity with depletion of Faecalibacterium prausnitzii and enrichment of Escherichia coli and Ruminococcus gnavus. These changes correlated with disease activity and inflammatory markers. Metabolomic analysis revealed decreased short-chain fatty acid production in IBD patients. Fecal microbiota transplantation trials showed promise for restoring healthy microbiome composition and reducing inflammation in select patients.",
+    "authors": ["Park J", "Schmidt A", "Liu Y", "Davis M"],
+    "publicationYear": 2024,
+    "journal": "Gastroenterology",
+    "keywords": ["inflammatory bowel disease", "gut microbiome", "dysbiosis", "Crohn's disease", "ulcerative colitis"],
+    "citationCount": 91
+  },
+  {
+    "pmid": "35901245",
+    "title": "CRISPR Gene Therapy for Sickle Cell Disease",
+    "abstract": "Sickle cell disease (SCD) results from a single point mutation in the beta-globin gene, causing severe anemia and pain crises. This clinical trial evaluated CRISPR-Cas9 gene editing to correct the mutation in hematopoietic stem cells from 45 SCD patients. After edited cells were transplanted back, 42 patients (93%) became transfusion-independent with normalized hemoglobin levels. No patients experienced vaso-occlusive crises at 12-month follow-up. Gene editing efficiency averaged 87% in peripheral blood cells. Mild adverse events included expected chemotherapy-related toxicities. Off-target editing analysis showed no concerning genomic alterations. This represents a potentially curative treatment for a previously intractable genetic disease.",
+    "authors": ["Jackson R", "Kim S", "White J", "Ahmed F"],
+    "publicationYear": 2024,
+    "journal": "New England Journal of Medicine",
+    "keywords": ["sickle cell disease", "CRISPR", "gene therapy", "gene editing", "hematopoietic stem cells"],
+    "citationCount": 287
+  },
+  {
+    "pmid": "35445678",
+    "title": "Deep Learning for Diabetic Retinopathy Screening",
+    "abstract": "Diabetic retinopathy (DR) is a leading cause of blindness, yet screening rates remain suboptimal. We developed a deep learning algorithm trained on 128,000 fundus photographs to detect referable DR. The model achieved 96.1% sensitivity and 95.5% specificity, matching retinal specialist performance. External validation across 5 countries and diverse populations maintained >94% accuracy. The algorithm identifies microaneurysms, hemorrhages, and exudates with lesion-level annotations. Implementation in primary care clinics increased screening rates from 52% to 84%. Automated grading reduced time-to-diagnosis from 3 weeks to immediate results. Cost-effectiveness analysis showed $1,200 savings per prevented blindness case.",
+    "authors": ["Gupta R", "Wilson C", "Zhao X", "Martin L"],
+    "publicationYear": 2023,
+    "journal": "JAMA Ophthalmology",
+    "keywords": ["diabetic retinopathy", "deep learning", "screening", "artificial intelligence", "fundus photography"],
+    "citationCount": 178
+  },
+  {
+    "pmid": "35334567",
+    "title": "Cardiovascular Effects of GLP-1 Receptor Agonists",
+    "abstract": "GLP-1 receptor agonists, initially developed for type 2 diabetes, show unexpected cardiovascular benefits. This meta-analysis of 12 randomized trials including 60,000 patients examined cardiovascular outcomes. GLP-1 agonists reduced major adverse cardiovascular events by 14%, cardiovascular mortality by 12%, and stroke by 16%. Benefits extended to patients without established cardiovascular disease. Mechanisms include improved glycemic control, weight loss (averaging 4.5 kg), reduced blood pressure (5 mmHg systolic), and direct cardiac protective effects. Semaglutide showed the largest effect size. These findings support GLP-1 agonists as first-line therapy for diabetic patients with cardiovascular risk factors.",
+    "authors": ["Morrison K", "Patel V", "Thompson R", "Li C"],
+    "publicationYear": 2024,
+    "journal": "Circulation",
+    "keywords": ["GLP-1 receptor agonists", "cardiovascular disease", "diabetes", "semaglutide", "MACE"],
+    "citationCount": 245
+  },
+  {
+    "pmid": "35223456",
+    "title": "Postpartum Depression Screening and Intervention",
+    "abstract": "Postpartum depression (PPD) affects 10-15% of new mothers but often goes undiagnosed. This study implemented universal PPD screening using Edinburgh Postnatal Depression Scale at 6-week postpartum visits across 50 obstetric practices. Of 8,000 screened mothers, 14% scored positive for depression. Early intervention with cognitive behavioral therapy and/or antidepressants improved outcomes. At 6 months, 72% of treated mothers showed remission versus 28% of untreated. Partners' involvement in therapy sessions increased success rates. Barriers to care included stigma and childcare access. Telehealth options improved engagement by 35%. Our findings support routine PPD screening as standard obstetric care.",
+    "authors": ["Foster A", "Chang M", "Rodriguez E"],
+    "publicationYear": 2023,
+    "journal": "Obstetrics & Gynecology",
+    "keywords": ["postpartum depression", "screening", "maternal mental health", "cognitive behavioral therapy", "EPDS"],
+    "citationCount": 67
+  },
+  {
+    "pmid": "35112389",
+    "title": "Antibiotic Resistance Patterns in Hospital-Acquired Infections",
+    "abstract": "Hospital-acquired infections (HAIs) pose significant morbidity and mortality risks, complicated by rising antibiotic resistance. This 5-year surveillance study across 200 hospitals analyzed resistance patterns in 50,000 HAI isolates. Carbapenem-resistant Enterobacteriaceae increased from 8% to 18%. Methicillin-resistant Staphylococcus aureus remained stable at 45%. Vancomycin-resistant Enterococcus rose to 30%. Multi-drug resistant Pseudomonas aeruginosa reached 23%. Genomic sequencing identified horizontal gene transfer of resistance elements between species. Antibiotic stewardship programs reduced inappropriate prescribing by 28%. Infection control measures including enhanced cleaning protocols decreased HAI rates by 15%. Continued surveillance and novel antimicrobial development remain critical.",
+    "authors": ["Coleman J", "Ibrahim H", "Murphy T", "Zhao L"],
+    "publicationYear": 2024,
+    "journal": "Clinical Infectious Diseases",
+    "keywords": ["antibiotic resistance", "hospital-acquired infections", "antimicrobial stewardship", "MRSA", "carbapenem resistance"],
+    "citationCount": 134
+  },
+  {
+    "pmid": "35998877",
+    "title": "Precision Medicine Approaches in Breast Cancer Treatment",
+    "abstract": "Breast cancer comprises multiple molecular subtypes requiring tailored treatment strategies. This study analyzed genomic profiles from 3,500 breast cancer patients to guide therapy selection. HER2-positive tumors (18%) showed excellent response to trastuzumab with 5-year survival of 91%. Triple-negative breast cancers (15%) with BRCA mutations benefited from PARP inhibitors, achieving 58% response rate. PIK3CA-mutant hormone receptor-positive cancers responded to alpelisib combined with endocrine therapy. Tumor mutational burden predicted immunotherapy response in 12% of patients. Circulating tumor DNA monitoring detected recurrence 8 months earlier than imaging. Precision medicine improved overall survival by 23% compared to conventional approaches.",
+    "authors": ["Stewart H", "Yamamoto K", "Green D", "Price M"],
+    "publicationYear": 2024,
+    "journal": "Nature Medicine",
+    "keywords": ["breast cancer", "precision medicine", "genomic profiling", "targeted therapy", "HER2"],
+    "citationCount": 198
+  },
+  {
+    "pmid": "35887654",
+    "title": "Vitamin D Supplementation and Respiratory Infections",
+    "abstract": "Vitamin D deficiency is prevalent globally and may increase susceptibility to respiratory infections. This randomized controlled trial enrolled 10,000 adults with baseline vitamin D levels <20 ng/mL. Participants received daily vitamin D3 (2000 IU) or placebo for 2 years. Vitamin D supplementation reduced upper respiratory infections by 26% and reduced duration of illness by 32%. Effects were strongest in severely deficient individuals (<10 ng/mL) with 42% infection reduction. No significant effect on influenza was observed. Supplementation increased serum vitamin D to optimal levels (30-40 ng/mL) in 89% of participants. Adverse events were rare. Cost-benefit analysis favored routine supplementation in deficient populations.",
+    "authors": ["Anderson P", "Liu F", "Bennett R", "Khan A"],
+    "publicationYear": 2023,
+    "journal": "BMJ",
+    "keywords": ["vitamin D", "respiratory infections", "supplementation", "immune function", "deficiency"],
+    "citationCount": 156
+  },
+  {
+    "pmid": "35776543",
+    "title": "Long-term Outcomes After Bariatric Surgery",
+    "abstract": "Bariatric surgery provides sustained weight loss for severe obesity, but long-term outcomes remain understudied. This 10-year follow-up of 2,400 bariatric patients compared Roux-en-Y gastric bypass and sleeve gastrectomy. Mean weight loss at 10 years was 28% for bypass versus 23% for sleeve. Type 2 diabetes remission rates were 51% and 42% respectively. Hypertension resolved in 47% of patients. Quality of life improvements persisted throughout follow-up. Nutritional deficiencies requiring supplementation occurred in 36% of bypass patients versus 18% of sleeve patients. Revision surgery was needed in 8% of cases. Despite complications, 92% of patients reported satisfaction and would choose surgery again.",
+    "authors": ["Peterson R", "Morris C", "Alvarez J", "Wong T"],
+    "publicationYear": 2024,
+    "journal": "JAMA Surgery",
+    "keywords": ["bariatric surgery", "obesity", "gastric bypass", "sleeve gastrectomy", "weight loss"],
+    "citationCount": 112
+  },
+  {
+    "pmid": "35665432",
+    "title": "Pediatric ADHD Management: Medication Versus Behavioral Therapy",
+    "abstract": "Attention-deficit/hyperactivity disorder (ADHD) affects 7% of children, with ongoing debate about optimal treatment. This comparative effectiveness study followed 1,800 children aged 6-12 with ADHD for 3 years. Treatment groups included stimulant medication alone, behavioral therapy alone, combined treatment, or routine community care. Combined treatment showed superior outcomes with 68% achieving symptom remission versus 56% for medication alone and 48% for behavioral therapy alone. Academic performance improved most with combined treatment. Medication alone worked faster but behavioral therapy provided more sustained benefits. Side effects including appetite suppression and sleep problems affected 32% on medication. Parent training was crucial for behavioral therapy success.",
+    "authors": ["Harris M", "Tanaka Y", "Campbell S", "Fisher D"],
+    "publicationYear": 2024,
+    "journal": "Pediatrics",
+    "keywords": ["ADHD", "pediatric", "stimulant medication", "behavioral therapy", "treatment outcomes"],
+    "citationCount": 143
+  },
+  {
+    "pmid": "35554321",
+    "title": "Cardiac Rehabilitation After Myocardial Infarction",
+    "abstract": "Cardiac rehabilitation improves outcomes after myocardial infarction (MI), yet participation rates remain low at 30%. This pragmatic trial tested interventions to increase enrollment across 75 hospitals. Automatic referral systems increased participation to 52%. Home-based programs removed transportation barriers, further improving uptake to 68%. The 12-week program included supervised exercise, dietary counseling, stress management, and medication optimization. Participants showed 31% reduction in recurrent MI and 26% reduction in mortality at 3-year follow-up. Exercise capacity improved by 27%. Depression scores decreased significantly. Cost-effectiveness was favorable at $12,000 per quality-adjusted life year gained. Strategies to improve access could prevent thousands of deaths annually.",
+    "authors": ["Mitchell T", "Santos R", "Hughes K", "Palmer J"],
+    "publicationYear": 2023,
+    "journal": "Journal of the American College of Cardiology",
+    "keywords": ["cardiac rehabilitation", "myocardial infarction", "secondary prevention", "exercise therapy", "outcomes"],
+    "citationCount": 178
+  },
+  {
+    "pmid": "35443210",
+    "title": "Artificial Pancreas Systems for Type 1 Diabetes",
+    "abstract": "Type 1 diabetes requires constant glucose monitoring and insulin adjustments. Artificial pancreas systems automate insulin delivery using continuous glucose sensors and advanced algorithms. This multicenter trial evaluated hybrid closed-loop systems in 450 type 1 diabetic patients for 12 months. Time in target glucose range (70-180 mg/dL) increased from 58% to 73%. HbA1c decreased from 7.9% to 7.1%. Hypoglycemic episodes decreased by 76%. Users reported reduced diabetes burden and improved quality of life. System accuracy maintained in diverse conditions including exercise and illness. Device-related technical issues occurred in 8% of users but resolved with software updates. The technology represents a major advance toward automated diabetes management.",
+    "authors": ["Brooks A", "Mendoza C", "Richardson L", "Shah P"],
+    "publicationYear": 2024,
+    "journal": "Diabetes Technology & Therapeutics",
+    "keywords": ["artificial pancreas", "type 1 diabetes", "closed-loop system", "continuous glucose monitoring", "insulin pump"],
+    "citationCount": 189
+  },
+  {
+    "pmid": "35332109",
+    "title": "Efficacy of mRNA Vaccines Against Emerging Viral Variants",
+    "abstract": "mRNA vaccine technology enables rapid response to emerging infectious diseases. This study evaluated mRNA vaccine effectiveness against influenza and respiratory syncytial virus (RSV) in 15,000 adults across two flu seasons. Influenza vaccine effectiveness was 78% against medically attended illness and 86% against hospitalization. The vaccine showed cross-protection against drifted strains not included in the formulation. RSV vaccine prevented 83% of severe lower respiratory infections in adults over 60. T-cell responses remained robust at 12 months. Local reactogenicity was common (72%) but mild. The platform's flexibility allowed rapid strain updates within 6 weeks. These results support mRNA technology as the future of respiratory virus vaccines.",
+    "authors": ["Cooper D", "Huang W", "Nelson E", "Okafor U"],
+    "publicationYear": 2024,
+    "journal": "The Lancet Infectious Diseases",
+    "keywords": ["mRNA vaccine", "influenza", "RSV", "vaccine effectiveness", "variant protection"],
+    "citationCount": 267
+  },
+  {
+    "pmid": "35221098",
+    "title": "Mindfulness-Based Stress Reduction for Chronic Anxiety",
+    "abstract": "Chronic anxiety disorders affect 284 million people worldwide and often require prolonged treatment. This randomized trial compared mindfulness-based stress reduction (MBSR) to escitalopram in 350 adults with generalized anxiety disorder. After 8 weeks, both groups showed similar anxiety reduction (30% MBSR vs 31% escitalopram). MBSR advantages included no medication side effects and sustained benefits at 6-month follow-up. Neuroimaging revealed increased prefrontal cortex activation and decreased amygdala reactivity in MBSR participants. Daily practice time correlated with outcomes; 20 minutes minimum was effective. Dropout rates were comparable (15% MBSR vs 12% medication). The study supports MBSR as a first-line non-pharmacological treatment option for anxiety disorders.",
+    "authors": ["Walsh J", "Kim D", "Fernandez A", "Lee M"],
+    "publicationYear": 2023,
+    "journal": "JAMA Psychiatry",
+    "keywords": ["mindfulness", "anxiety disorder", "stress reduction", "meditation", "non-pharmacological treatment"],
+    "citationCount": 201
+  },
+  {
+    "pmid": "35110987",
+    "title": "Hepatitis C Elimination Through Direct-Acting Antivirals",
+    "abstract": "Hepatitis C virus (HCV) infects 58 million people globally, causing cirrhosis and liver cancer. Direct-acting antivirals (DAAs) offer cure rates exceeding 95%. This population-based study implemented universal HCV screening and treatment in a region of 2 million people. Over 5 years, 45,000 infected individuals were identified and treated. Sustained virologic response was achieved in 97% of patients. New HCV infections decreased by 68%. Liver-related hospitalizations declined by 42% and HCV-related mortality by 51%. Modeling suggests HCV elimination is achievable by 2030 with continued screening and treatment. Barriers included identifying patients lost to care and treating people who inject drugs. The program demonstrated feasibility of HCV elimination as a public health goal.",
+    "authors": ["Gordon S", "Patel N", "Murray J", "Chen H"],
+    "publicationYear": 2024,
+    "journal": "Hepatology",
+    "keywords": ["hepatitis C", "direct-acting antivirals", "viral elimination", "public health", "cure rates"],
+    "citationCount": 156
+  }
+]

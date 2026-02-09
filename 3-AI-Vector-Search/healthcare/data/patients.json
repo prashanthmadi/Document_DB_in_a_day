@@ -1,0 +1,172 @@
+[
+  {
+    "patientId": "PT001",
+    "firstName": "Margaret",
+    "lastName": "Chen",
+    "dateOfBirth": "1958-03-15",
+    "gender": "F",
+    "email": "margaret.chen@email.com",
+    "phone": "+1-555-0101",
+    "address": {
+      "street": "742 Oak Avenue",
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101"
+    },
+    "insuranceProvider": "Blue Cross Blue Shield",
+    "primaryPhysician": "Dr. Sarah Williams"
+  },
+  {
+    "patientId": "PT002",
+    "firstName": "Robert",
+    "lastName": "Johnson",
+    "dateOfBirth": "1975-07-22",
+    "gender": "M",
+    "email": "robert.j@email.com",
+    "phone": "+1-555-0102",
+    "address": {
+      "street": "1523 Maple Street",
+      "city": "Portland",
+      "state": "OR",
+      "zipCode": "97201"
+    },
+    "insuranceProvider": "Aetna",
+    "primaryPhysician": "Dr. Michael Chang"
+  },
+  {
+    "patientId": "PT003",
+    "firstName": "Patricia",
+    "lastName": "Martinez",
+    "dateOfBirth": "1982-11-08",
+    "gender": "F",
+    "email": "pmartinez@email.com",
+    "phone": "+1-555-0103",
+    "address": {
+      "street": "89 Pine Road",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94102"
+    },
+    "insuranceProvider": "Kaiser Permanente",
+    "primaryPhysician": "Dr. Sarah Williams"
+  },
+  {
+    "patientId": "PT004",
+    "firstName": "James",
+    "lastName": "Anderson",
+    "dateOfBirth": "1945-05-30",
+    "gender": "M",
+    "email": "j.anderson@email.com",
+    "phone": "+1-555-0104",
+    "address": {
+      "street": "2304 Elm Boulevard",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001"
+    },
+    "insuranceProvider": "Medicare",
+    "primaryPhysician": "Dr. David Kim"
+  },
+  {
+    "patientId": "PT005",
+    "firstName": "Linda",
+    "lastName": "Thompson",
+    "dateOfBirth": "1990-09-12",
+    "gender": "F",
+    "email": "linda.t@email.com",
+    "phone": "+1-555-0105",
+    "address": {
+      "street": "567 Cedar Lane",
+      "city": "Denver",
+      "state": "CO",
+      "zipCode": "80201"
+    },
+    "insuranceProvider": "United Healthcare",
+    "primaryPhysician": "Dr. Emily Rodriguez"
+  },
+  {
+    "patientId": "PT006",
+    "firstName": "Michael",
+    "lastName": "Davis",
+    "dateOfBirth": "1968-02-28",
+    "gender": "M",
+    "email": "mdavis@email.com",
+    "phone": "+1-555-0106",
+    "address": {
+      "street": "910 Birch Avenue",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zipCode": "85001"
+    },
+    "insuranceProvider": "Cigna",
+    "primaryPhysician": "Dr. Michael Chang"
+  },
+  {
+    "patientId": "PT007",
+    "firstName": "Jennifer",
+    "lastName": "Garcia",
+    "dateOfBirth": "1955-12-03",
+    "gender": "F",
+    "email": "jgarcia@email.com",
+    "phone": "+1-555-0107",
+    "address": {
+      "street": "1234 Willow Court",
+      "city": "Houston",
+      "state": "TX",
+      "zipCode": "77001"
+    },
+    "insuranceProvider": "Humana",
+    "primaryPhysician": "Dr. Sarah Williams"
+  },
+  {
+    "patientId": "PT008",
+    "firstName": "William",
+    "lastName": "Rodriguez",
+    "dateOfBirth": "1978-04-17",
+    "gender": "M",
+    "email": "wrodriguez@email.com",
+    "phone": "+1-555-0108",
+    "address": {
+      "street": "4567 Spruce Drive",
+      "city": "Miami",
+      "state": "FL",
+      "zipCode": "33101"
+    },
+    "insuranceProvider": "Blue Cross Blue Shield",
+    "primaryPhysician": "Dr. David Kim"
+  },
+  {
+    "patientId": "PT009",
+    "firstName": "Mary",
+    "lastName": "Wilson",
+    "dateOfBirth": "1963-08-25",
+    "gender": "F",
+    "email": "mary.wilson@email.com",
+    "phone": "+1-555-0109",
+    "address": {
+      "street": "7890 Poplar Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60601"
+    },
+    "insuranceProvider": "Aetna",
+    "primaryPhysician": "Dr. Emily Rodriguez"
+  },
+  {
+    "patientId": "PT010",
+    "firstName": "David",
+    "lastName": "Lee",
+    "dateOfBirth": "1985-06-19",
+    "gender": "M",
+    "email": "david.lee@email.com",
+    "phone": "+1-555-0110",
+    "address": {
+      "street": "3456 Cypress Avenue",
+      "city": "Boston",
+      "state": "MA",
+      "zipCode": "02101"
+    },
+    "insuranceProvider": "Harvard Pilgrim",
+    "primaryPhysician": "Dr. Michael Chang"
+  }
+]

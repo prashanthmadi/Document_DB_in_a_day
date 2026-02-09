@@ -1,0 +1,17 @@
+# Azure DocumentDB Training - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Azure OpenAI SDK
+# Used in: Module 3 (movie-data & healthcare examples)
+# Purpose: Generate embeddings for vector search
+openai>=1.12.0
+
+# Environment variable management
+# Used in: Module 3 (movie-data & healthcare examples)
+# Purpose: Load API keys and configuration from .env files
+python-dotenv>=1.0.0
+
+# MongoDB Python Driver
+# Used in: Module 3 (healthcare example)
+# Purpose: Connect to Azure DocumentDB and perform operations
+pymongo>=4.6.0
