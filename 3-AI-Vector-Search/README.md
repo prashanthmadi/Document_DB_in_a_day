@@ -42,7 +42,7 @@ This module uses a **movie dataset** with 50 popular films and pre-computed embe
 
 **Python Scripts:** The `.py` files show how embeddings were generated using Azure OpenAI. You don't need to run them - all outputs are included. Keep your `.env` file in `.gitignore` to protect API keys.
 
-**Optional:** After completing the basics, explore the `healthcare/` subfolder for a **healthcare industry example** with medical research papers.
+**Optional:** After completing the basics, explore the healthcare industry example at [Industry-solutions/health-care-vector-search](../Industry-solutions/health-care-vector-search/README.md) for medical research papers, patient records, and clinical notes with vector embeddings.
 
 ---
 
