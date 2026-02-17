@@ -6,9 +6,11 @@ These will be used in the tutorial so users don't need Azure OpenAI access
 from openai import AzureOpenAI
 import json
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load environment variables from project root .env
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
@@ -18,7 +20,7 @@ client = AzureOpenAI(
 
 def generate_embedding(text, dimensions=256):
     """Generate embedding with reduced dimensions for smaller file size"""
-    model = os.getenv("AZURE_OPENAI_DEPLOYMENT", "text-embedding-3-small")
+    model = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-3-small")
     response = client.embeddings.create(
         model=model,
         input=text,

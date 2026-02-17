@@ -1,0 +1,401 @@
+[
+  {
+    "title": "The Shawshank Redemption",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Godfather",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Dark Knight",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Schindler's List",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Peacock", "type": "subscription"}
+    ]
+  },
+  {
+    "title": "Pulp Fiction",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Return of the King",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Forrest Gump",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Inception",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Fight Club",
+    "streaming": [
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$2.99"}
+    ]
+  },
+  {
+    "title": "Goodfellas",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Star Wars: Episode V",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Interstellar",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Parasite",
+    "streaming": [
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Lion King",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Avengers",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Toy Story",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Saving Private Ryan",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Green Mile",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "streaming": [
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Se7en",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Pianist",
+    "streaming": [
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$2.99"}
+    ]
+  },
+  {
+    "title": "Gladiator",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Departed",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Prestige",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Whiplash",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Intouchables",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Grand Budapest Hotel",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Spirited Away",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Jurassic Park",
+    "streaming": [
+      {"platform": "Peacock", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Braveheart",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Avatar",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Truman Show",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Amélie",
+    "streaming": [
+      {"platform": "Amazon Prime Video", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$2.99"}
+    ]
+  },
+  {
+    "title": "Casino Royale",
+    "streaming": [
+      {"platform": "Amazon Prime Video", "type": "subscription"},
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Mad Max: Fury Road",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Catch Me If You Can",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Shining",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Joker",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Bohemian Rhapsody",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "La La Land",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Titanic",
+    "streaming": [
+      {"platform": "Paramount+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Incredibles",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Finding Nemo",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Deadpool",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Hulu", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "The Hangover",
+    "streaming": [
+      {"platform": "Max", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$2.99"}
+    ]
+  },
+  {
+    "title": "Frozen",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Black Panther",
+    "streaming": [
+      {"platform": "Disney+", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$3.99"}
+    ]
+  },
+  {
+    "title": "Moonlight",
+    "streaming": [
+      {"platform": "Amazon Prime Video", "type": "subscription"},
+      {"platform": "Apple TV", "type": "rent", "price": "$3.99"},
+      {"platform": "Google Play", "type": "rent", "price": "$2.99"}
+    ]
+  },
+  {
+    "title": "Get Out",
+    "streaming": [
+      {"platform": "Netflix", "type": "subscription"},
+      {"platform": "Peacock", "type": "subscription"},
+      {"platform": "Amazon Prime Video", "type": "rent", "price": "$3.99"}
+    ]
+  }
+]

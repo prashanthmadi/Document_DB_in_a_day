@@ -40,7 +40,7 @@ This module uses a **movie dataset** with 50 popular films and pre-computed embe
     └── generate_query_embeddings.py           # Script used to generate query vectors (reference only)
 ```
 
-**Python Scripts:** The `.py` files show how embeddings were generated using Azure OpenAI. You don't need to run them - all outputs are included. Keep your `.env` file in `.gitignore` to protect API keys.
+**Python Scripts:** The `.py` files show how embeddings were generated using Azure OpenAI. You don't need to run them - all outputs are included. If you do run them, configure your `.env` in the project root (see `.env.template`).
 
 **Optional:** After completing the basics, explore the healthcare industry example at [Industry-solutions/health-care-vector-search](../Industry-solutions/health-care-vector-search/README.md) for medical research papers, patient records, and clinical notes with vector embeddings.
 
@@ -398,7 +398,7 @@ python generate_movie_embeddings.py
 python generate_query_embeddings.py
 ```
 
-**Important:** If you explore the Python scripts, remember to keep `.env` files in `.gitignore` to protect your Azure OpenAI API keys and connection strings.
+**Important:** The Python scripts load credentials from the root `.env` file. Never commit `.env` — it's already in `.gitignore`.
 
 ---
 

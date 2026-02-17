@@ -1,4 +1,4 @@
-# Document DB in a Day (Draft)
+# Document DB in a Day
 
 A one-day, AI-focused workshop to help participants learn DocumentDB alongside Microsoft Foundry. This is a draft version and will be updated with additional modules.
 
@@ -24,8 +24,10 @@ A one-day, AI-focused workshop to help participants learn DocumentDB alongside M
 - Healthcare industry example with pre-generated embeddings
 
 ### 4) AI Agents with DocumentDB
-- Planned module for creating agents with DocumentDB and Foundry
-- In progress (draft)
+- Build AI agents using the Microsoft Agent Framework
+- Two agents: Movie Recommendation (vector search) + Where to Watch (streaming lookup)
+- Interactive testing via DevUI web interface
+- Function tools that query DocumentDB in real-time
 
 ## What’s Included
 
@@ -35,7 +37,7 @@ A one-day, AI-focused workshop to help participants learn DocumentDB alongside M
 
 ## Status
 
-This repository is a draft. More modules and refinements are coming, including expanded AI agent scenarios and Foundry integration examples.
+All four core modules are complete. Additional refinements, expanded AI agent scenarios, and Foundry integration examples are planned.
 
 ## Full-Day Timeline
 
@@ -48,13 +50,13 @@ This repository is a draft. More modules and refinements are coming, including e
 | **12:15 - 12:45 PM** | 30 min | 🍽️ *Lunch Break* | |
 | **12:45 - 1:45 PM** | 1 hour | 🔍 **Vector Search** | DiskANN indexing, movie & healthcare examples<br>[Module 3](3-AI-Vector-Search/README.md) |
 | **1:45 - 2:00 PM** | 15 min | ☕ *Break* | |
-| **2:00 - 3:30 PM** | 1.5 hours | 🤖 **AI Agents** | Building agents with DocumentDB and Foundry<br>[Module 4](4-AI-Agents/README.md) |
+| **2:00 - 3:30 PM** | 1.5 hours | 🤖 **AI Agents** | Building agents with DocumentDB and Microsoft agent framework<br>[Module 4](4-AI-Agents/README.md) |
 | **3:30 - 4:30 PM** | 1 hour | 💬 **Q&A & Wrap-up** | Questions, recap, and next steps |
 
 **Total Duration:** 7.5 hours (including breaks)
 
 ## Next Steps
 
-- Finish Module 4 (AI Agents with DocumentDB)
 - Add more Foundry-first scenarios and labs
 - Expand troubleshooting and performance guidance
+- Add multi-agent workflow examples (Agent Framework Workflows)

@@ -7,10 +7,11 @@ Writes: movies_with_vectors.ndjson (with embeddings)
 from openai import AzureOpenAI
 import json
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from project root .env
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 # Initialize Azure OpenAI client
 client = AzureOpenAI(
@@ -21,7 +22,7 @@ client = AzureOpenAI(
 
 def generate_embedding(text, dimensions=256):
     """Generate embedding for given text with reduced dimensions"""
-    model = os.getenv("AZURE_OPENAI_DEPLOYMENT", "text-embedding-3-small")
+    model = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-3-small")
     response = client.embeddings.create(
         model=model,
         input=text,
