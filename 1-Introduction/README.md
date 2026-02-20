@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- 🗄️ Provisioning Azure DocumentDB (vCore) cluster
+- 🗄️ Provisioning Azure DocumentDB (with MongoDB compatibility) cluster
 - 🔌 Connecting to DocumentDB via VS Code extension
 - 🎯 Creating Azure AI Foundry project
 - 🤖 Deploying embedding and chat models
@@ -42,6 +42,7 @@
    - **Cluster name:** `docdb-training-cluster` (must be globally unique)
    - **Location:** Choose region (e.g., East US, West Europe)
    - **MongoDB version:** Select latest (7.0 or higher)
+   - **High Availability:** Uncheck **Enabled** (Don't need for the lab, it'll save you a few bucks)
    - **Cluster tier:** Select **M25** or **M30** (for vector search support)
    - **Storage:** 128 GB (default)
    - **Compute:** 2 vCores (default for M25)
@@ -120,6 +121,27 @@
 5. Right-click the cluster again → Select **"Refresh"** to see your new database
 
 ✅ **Checkpoint:** You now have a database called "trainingdb"
+
+---
+
+## 🚨 Required Before You Continue
+
+> [!CAUTION]
+> **MongoDB Shell (`mongosh`) is required for this lab.**
+> If `mongosh` is not installed, the commands in the next steps will fail.
+>
+> - **Windows (winget):** `winget install MongoDB.Shell`
+> - **macOS (Homebrew):** `brew install mongosh`
+> - **Linux (APT):** follow the official instructions: https://www.mongodb.com/docs/mongodb-shell/install/
+>
+> Verify installation:
+>
+> ```bash
+> mongosh --version
+> ```
+
+---
+
 
 ### 2.4 Open DocumentDB Scrapbook
 1. Expand your cluster → You should see **trainingdb**
@@ -406,7 +428,7 @@ After completing this setup, you should have:
 ✅ **Understanding** of the infrastructure for AI+Database applications
 
 **Skills gained:**
-- Provisioning Azure DocumentDB (vCore) clusters
+- Provisioning Azure DocumentDB (with MongoDB compatibility) clusters
 - Configuring networking and firewall rules
 - Using DocumentDB for VS Code extension
 - Running MongoDB queries in playgrounds
@@ -417,12 +439,12 @@ After completing this setup, you should have:
 
 ## Additional Resources
 
-### Azure DocumentDB (vCore)
-- [Official Documentation](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/)
-- [MongoDB Compatibility](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/compatibility)
-- [Pricing Calculator](https://azure.microsoft.com/pricing/details/cosmos-db/)
-- [Best Practices](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/best-practices)
-
+### Azure DocumentDB (with MongoDB compatibility)
+- [Official Documentation](https://learn.microsoft.com/en-us/azure/documentdb)
+- [MongoDB Compatibility](https://learn.microsoft.com/en-us/azure/documentdb/compatibility-query-language)
+- [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/mongodb/)
+- [Indexing Best Practices](https://learn.microsoft.com/en-us/azure/documentdb/how-to-create-indexes)
+- [HA Best Practices](https://learn.microsoft.com/en-us/azure/documentdb/high-availability-replication-best-practices)
 ### VS Code Extensions
 - [DocumentDB for VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) - **Recommended**
 - [Official Extension Guide](https://documentdb.io/docs/getting-started/vscode-extension-guide) - Complete documentation
