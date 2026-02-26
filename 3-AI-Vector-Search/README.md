@@ -160,23 +160,31 @@ Use **DocumentDB Scrapbook** to run queries:
 - Or click **Run All** at the top to execute all commands
 
 ```javascript
-use trainingdb
+
+//Uncomment Below when in JS run time
+//use trainingdb
 
 db.movies.countDocuments()  // Should return: 50
 
 // Check a sample document
 db.movies.findOne({title: "Inception"})
 
-// Verify embedding exists and has 256 dimensions
+// Verify embedding exists and has 256 dimensions, Only run this in JS Runtime
+/*
 db.movies.findOne(
   {title: "Inception"}, 
   {title: 1, contentVector: 1, _id: 0}
 ).contentVector.length  // Should return: 256
+*/
 ```
 
 ### 3.2 Create DiskANN Vector Index
 
 Use **DocumentDB Scrapbook** to create the index:
+
+1. If an error is received regarding "The diskann index is not enabled for this cluster tier", please make sure you are at a tier of M30 or higher.
+
+Note: Once a cluster is scaled to M30 or higher, it cannot be scaled back down. [Documentation Link](https://learn.microsoft.com/en-us/azure/documentdb/limitations)
 
 ```javascript
 db.runCommand({
