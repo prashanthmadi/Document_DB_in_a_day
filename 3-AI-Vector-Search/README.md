@@ -171,10 +171,10 @@ db.movies.findOne({title: "Inception"})
 
 // Verify embedding exists and has 256 dimensions, Only run this in JS Runtime
 /*
-db.movies.findOne(
-  {title: "Inception"}, 
-  {title: 1, contentVector: 1, _id: 0}
-).contentVector.length  // Should return: 256
+db.movies.aggregate([
+  { $match: { title: "Inception" } },
+  { $project: { _id: 0, title: 1, vectorLength: { $size: "$contentVector" } } }
+]) // Should return: 256
 */
 ```
 
