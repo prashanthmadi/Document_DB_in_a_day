@@ -210,7 +210,7 @@ A colleague suggests scaling from **4 vCores to 16 vCores** to fix the latency i
 - The workload involves compute-heavy operations (complex aggregations, `$lookup` joins across large collections, text search)
 - Connection count is approaching the tier limit
 
-**Key takeaway:** Always check `.explain()` output and CPU metrics before approving a scale-up. In this case, a free index creation saves $X,XXX/month in unnecessary compute costs while delivering 100x better performance.
+**Key takeaway:** Always check `.explain()` output and CPU metrics before approving a scale-up. In this case, a free index creation avoids a costly and unnecessary 4x compute upgrade while delivering 100x better performance.
 
 </details>
 
