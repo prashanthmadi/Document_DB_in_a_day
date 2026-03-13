@@ -1,60 +1,40 @@
-# Performance and Cost Optimization in Azure Cosmos DB
+# Azure DocumentDB Performance & Cost Optimization Training (L100–L200)
 
-## Modules
+This hands-on, follow-along training covers **performance tuning and cost optimization**
+for **Azure DocumentDB (MongoDB compatibility)**.
 
-1. **Understanding RU/s and Capacity Planning**  
-   Learn how to plan for Request Units and choose the appropriate capacity for your application.  
-   
-2. **Query Optimization Strategies**  
-   Explore techniques for optimizing your queries to improve performance and reduce cost.  
-   
-3. **Indexing Best Practices**  
-   Understand how to create and manage indexes effectively to enhance query performance.  
-   
-4. **Partitioning Strategies**  
-   Study how to partition your data for scalable performance and optimization.  
-   
-5. **Cost Optimization Techniques**  
-   Discover methods to optimize your costs while using Azure Cosmos DB.  
-   
-6. **Quick Code Samples**  
-   - Sample code demonstrating query optimization.  
-   - Example of indexing rules for faster queries.  
-   - Code snippets for partitioning demonstration.  
+**Audience**
+- Cloud engineers
+- Support engineers
+- Architects new to Azure DocumentDB
 
-## Sample Outputs
+**Goals**
+- Understand how performance works in Azure DocumentDB
+- Learn how query shape and indexing impact cost
+- Apply scaling strategies to reduce overprovisioning
+- Practice real-world troubleshooting patterns
 
-### Query Performance Analysis Examples
+---
 
-1. **Sample output from explain() for Query 1:**  
-   ```json
-   {
-     "queryMetrics": {
-       "executionTime":"10ms",
-       "retrievedDocumentCount": 5,
-       "requestUnits": 2
-     }
-   }
-   ```  
+## Module 1 – Performance Fundamentals
 
-2. **Sample output from explain() for Query 2:**  
-   ```json
-   {
-     "queryMetrics": {
-       "executionTime":"20ms",
-       "retrievedDocumentCount": 10,
-       "requestUnits": 5
-     }
-   }
-   ```  
+### Key Concepts
+- Compute (vCores + memory) and storage are **decoupled**
+- Performance depends on:
+  - CPU & memory (compute tier)
+  - Storage IOPS
+  - Index efficiency
+- Scaling operations are **zero downtime**
 
-3. **Sample output from explain() for Query 3:**  
-   ```json
-   {
-     "queryMetrics": {
-       "executionTime":"12ms",
-       "retrievedDocumentCount": 2,
-       "requestUnits": 3
-     }
-   }
-   ```  
+### Why This Matters
+Blindly scaling compute increases cost without fixing root causes.
+Most performance issues are query or index related.
+
+---
+
+### 🧪 Lab 1 – Establish a Baseline
+
+**Goal:** Observe baseline query performance.
+
+```js
+db.orders.find({ region: "eastus" }).explain("executionStats")
