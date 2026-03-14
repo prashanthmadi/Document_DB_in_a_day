@@ -61,6 +61,23 @@ db.orders.find({ status: "delivered" });
 db.orders.createIndex({ status: 1 });
 db.orders.find({ status: "delivered" });
 ```
+### 1.4 Index Can Be Slower on Small Collections
+
+### What’s Happening
+With a very small dataset (e.g., **80 documents**), adding an index can actually **degrade performance**. This is an expected behavior.
+
+### Without Index — **COLLSCAN (Collection Scan)**
+- MongoDB scans all documents sequentially
+- 80 documents fit entirely in RAM
+- Single linear read from WiredTiger cache
+- **Minimal overhead and very fast**
+
+### With Index — **IXSCAN (Index Scan)**
+DocumentDB performs **two steps instead of one**:
+1. Traverse the B-tree index to find matching entries (e.g., `region = "eastus"`)
+2. Fetch each document by record ID using random lookups
+
+For such a small dataset, below `.explain()` sample outputs are tweaked for learning purposes
 
 ---
 
