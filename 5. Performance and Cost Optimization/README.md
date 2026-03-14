@@ -1,6 +1,6 @@
-# Module 5: Performance & Cost Optimization (L100–L200)
+# Module 5: Performance & Cost Optimization (L100–L300)
 
-**Duration:** 60–90 minutes | **Level:** L100–L200
+**Duration:** 90–120 minutes | **Level:** L100–L300
 
 This hands-on, follow-along training covers **performance tuning and cost optimization** for **Azure DocumentDB**. You will learn how to analyze query execution plans, design efficient indexes, tune queries for maximum throughput, and apply cost-saving scaling strategies — all using the **VSCode DocumentDB extension**.
 
@@ -12,8 +12,11 @@ By the end of this module, you will be able to:
 
 - ✅ Read and interpret `.explain()` output to diagnose slow queries
 - ✅ Design index strategies that eliminate collection scans
-- ✅ Optimize query patterns using projections, covered queries, and aggregation pipelines
+- ✅ Optimize query patterns using projections, compound indexes, and aggregation pipelines
 - ✅ Apply compute and storage scaling strategies to reduce cost
+- ✅ Use the Index Advisor to automatically discover missing indexes
+- ✅ Understand High Performance Storage (HPS) and when to use it
+- ✅ Choose a shard key and decide between vertical and horizontal scaling
 - ✅ Troubleshoot real-world performance bottlenecks
 
 ---
@@ -47,13 +50,14 @@ One-time database, collection, and sample data setup used across all modules, la
 ---
 
 ### 📘 [L100: Performance Fundamentals](L100_Performance_Fundamentals.md)
-**Duration:** 20–30 minutes | **Level:** L100
+**Duration:** 25–35 minutes | **Level:** L100
 
 Core performance concepts for Azure DocumentDB.
 - How DocumentDB processes queries (collection scans vs. index scans)
 - Reading and interpreting `.explain("executionStats")` output
 - Understanding key metrics: `docsExamined`, `nReturned`, `executionTimeMillis`
 - 3 detailed `.explain()` output walkthroughs
+- **Compound indexes for multi-field queries** (Part 3.5): two equality filters, equality + sort, projection patterns
 
 ---
 
@@ -61,21 +65,41 @@ Core performance concepts for Azure DocumentDB.
 **Duration:** 20–30 minutes | **Level:** L200
 
 Advanced query optimization and cost management.
-- Compound indexes and index intersection
-- Covered queries for maximum efficiency
+- Compound indexes and the full ESR rule
 - Aggregation pipeline optimization
 - Compute tier selection and scaling strategies
 - Monitoring and alerting best practices
 
 ---
 
-### 🧪 Hands-On Labs
+### 📙 [L300: Index Advisor & High Performance Storage](L300_Index_Advisor_and_HPS.md)
+**Duration:** 20–30 minutes | **Level:** L300
+
+AI-powered index recommendations and premium storage tier.
+- Index Advisor: automatic query analysis and one-click index apply
+- Step-by-step walkthrough: slow query → recommendation → apply → compare
+- High Performance Storage (HPS): up to 80,000 IOPS and 1,200 MB/s per shard
+- Performance tier table (M30–M200) and when to use HPS vs standard storage
+
+---
+
+### 📙 [L300: Sharding & Scaling Strategies](L300_Sharding_and_Scaling.md)
+**Duration:** 25–35 minutes | **Level:** L300
+
+Distributed data and scaling decision framework.
+- Sharding concepts: logical and physical shards, automatic balancing
+- Choosing a shard key: high cardinality, even distribution, query alignment
+- Vertical scaling (scale up): cluster tier changes, zero-downtime, when to use
+- Horizontal scaling (scale out): add shards, near-unlimited capacity
+- Decision framework: optimize → scale vertical → scale horizontal
+
+---
+
+### 🧪 Hands-On Lab
 
 | Lab | Title | Duration | Focus |
 |-----|-------|----------|-------|
-| 🔬 [Lab 1](Lab1_Index_Optimization.md) | Index Strategy Optimization | 15–20 min | Create and compare indexes using `.explain()` |
-| 🔬 [Lab 2](Lab2_Query_Tuning.md) | Query Performance Tuning | 15–20 min | Optimize slow queries with projections and pipelines |
-| 🔬 [Lab 3](Lab3_Scaling_Strategy.md) | Scaling & Right-Sizing | 15–20 min | Analyze workloads and apply cost-saving strategies |
+| 🔬 [Hands-On Lab](Lab_Hands_On.md) | Performance Optimization | 30–40 min | Diagnose scans, compound indexes, query tuning, aggregation, workload analysis & scaling decision |
 
 ---
 
@@ -95,19 +119,20 @@ Advanced query optimization and cost management.
                │
 ┌──────────────▼───────────────────┐
 │  L100: Performance Fundamentals  │  ← Core concepts & .explain()
+│  (incl. compound index patterns) │
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
-│  Lab 1: Index Optimization       │  ← Hands-on practice
+│  L200: Cost Optimization         │  ← Advanced strategies & ESR rule
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
-│  L200: Cost Optimization         │  ← Advanced strategies
+│  Hands-On Lab                    │  ← Practice all concepts in one lab
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
-│  Lab 2: Query Tuning             │  ← Hands-on practice
-│  Lab 3: Scaling Strategy         │
+│  L300: Index Advisor & HPS       │  ← AI-powered recommendations
+│  L300: Sharding & Scaling        │  ← Distributed scaling strategies
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
@@ -123,11 +148,11 @@ Advanced query optimization and cost management.
 5. Performance and Cost Optimization/
 ├── README.md                          ← You are here
 ├── 00_Setup_and_Sample_Data.md        ← One-time data setup
-├── L100_Performance_Fundamentals.md   ← L100 concepts module
+├── L100_Performance_Fundamentals.md   ← L100 concepts module (incl. compound index patterns)
 ├── L200_Cost_Optimization.md          ← L200 concepts module
-├── Lab1_Index_Optimization.md         ← Hands-on lab 1
-├── Lab2_Query_Tuning.md               ← Hands-on lab 2
-├── Lab3_Scaling_Strategy.md           ← Hands-on lab 3
+├── L300_Index_Advisor_and_HPS.md      ← L300: Index Advisor & High Performance Storage
+├── L300_Sharding_and_Scaling.md       ← L300: Sharding & Scaling Strategies
+├── Lab_Hands_On.md                    ← Consolidated hands-on lab (all exercises)
 ├── Exercises.md                       ← Knowledge check (3 questions)
 └── sample-data/
     └── ecommerce_data.vscode-documentdb-scrapbook  ← Sample data script

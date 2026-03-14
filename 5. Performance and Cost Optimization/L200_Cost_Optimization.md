@@ -342,8 +342,8 @@ db.products.dropIndex("category_1_rating_-1_price_1");
 
 ---
 
-✅ **Checkpoint:** You now understand advanced indexing strategies, aggregation optimization, and cost management. You're ready for [Lab 2: Query Tuning](Lab2_Query_Tuning.md) and [Lab 3: Scaling Strategy](Lab3_Scaling_Strategy.md)!
+✅ **Checkpoint:** You now understand advanced indexing strategies, aggregation optimization, and cost management. You're ready for the [Hands-On Lab: Performance Optimization](Lab_Hands_On.md)!
 
 ---
 
-[← Back to Module Overview](README.md) | [Next: Lab 2 — Query Tuning →](Lab2_Query_Tuning.md)
+[← Back to Module Overview](README.md) | [Next: Hands-On Lab →](Lab_Hands_On.md)

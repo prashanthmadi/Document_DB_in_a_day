@@ -316,6 +316,286 @@ db.orders.find(
 
 ---
 
+## Part 3.5: Compound Indexes for Multi-Field Queries
+
+So far we have looked at queries that filter on a **single field**. Real-world application queries almost always filter on **multiple fields simultaneously** — and this is where compound indexes become essential.
+
+### Why Compound Indexes Matter for Multi-Filter `find()` Queries
+
+When a query filters on two or more fields, a **single-field index on just one of those fields** is not optimal. The index narrows the scan to documents matching the first field, but DocumentDB must then examine all of those documents individually to evaluate the second filter condition.
+
+**Example:** If you have `{ region: 1 }` index and run `find({ region: "eastus", status: "delivered" })`:
+- The index finds all ~30 documents where `region = "eastus"`
+- DocumentDB then checks each of those 30 documents to see which ones also have `status = "delivered"`
+- This is still far better than COLLSCAN, but a compound index on `{ region: 1, status: 1 }` would narrow the index scan directly to documents matching **both** conditions simultaneously
+
+A compound index stores multiple fields together in a sorted B-tree, so the query engine can use a single index lookup to satisfy all filter conditions at once.
+
+> 💡 **Brief ESR Rule introduction:** When building a compound index, field order matters. The **ESR rule** gives the optimal order:
+> - **E**quality fields first (exact match filters like `{ status: "delivered" }`)
+> - **S**ort fields next (fields used in `.sort()`)
+> - **R**ange fields last (fields with `$gt`, `$lt`, `$gte`, `$lte`, `$in`)
+>
+> For the full ESR deep-dive with examples, see [L200: Advanced Optimization](L200_Cost_Optimization.md).
+
+---
+
+### Example 1 — Two Equality Filters
+
+**Scenario:** Find all delivered orders in the eastus region.
+
+```javascript
+// Query: Find delivered orders in the eastus region
+db.orders.find({ region: "eastus", status: "delivered" }).explain("executionStats");
+```
+
+**With only a single-field `{ region: 1 }` index:**
+
+```json
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "FETCH",
+      "filter": { "status": { "$eq": "delivered" } },
+      "inputStage": {
+        "stage": "IXSCAN",
+        "keyPattern": { "region": 1 },
+        "indexName": "region_1",
+        "indexBounds": { "region": ["[\"eastus\", \"eastus\"]"] }
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 18,
+    "executionTimeMillis": 4,
+    "totalKeysExamined": 30,
+    "totalDocsExamined": 30
+  }
+}
+```
+
+> ⚠️ **Problem:** The index on `region` finds 30 documents in "eastus", but DocumentDB must then fetch and check all 30 to filter out the non-delivered ones. `totalDocsExamined` (30) is significantly higher than `nReturned` (18).
+
+Now create a compound index on both filter fields:
+
+```javascript
+// Create a compound index: both fields are equality matches
+// Put the more selective field (region, ~30 unique per collection) first
+db.orders.createIndex({ region: 1, status: 1 });
+```
+
+**Re-run the same query:**
+
+```json
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "FETCH",
+      "inputStage": {
+        "stage": "IXSCAN",
+        "keyPattern": { "region": 1, "status": 1 },
+        "indexName": "region_1_status_1",
+        "indexBounds": {
+          "region": ["[\"eastus\", \"eastus\"]"],
+          "status": ["[\"delivered\", \"delivered\"]"]
+        }
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 18,
+    "executionTimeMillis": 1,
+    "totalKeysExamined": 18,
+    "totalDocsExamined": 18
+  }
+}
+```
+
+| Metric | Single-field `{ region: 1 }` | Compound `{ region: 1, status: 1 }` |
+|--------|------------------------------|-------------------------------------|
+| totalDocsExamined | 30 | **18** |
+| nReturned | 18 | 18 |
+| Efficiency ratio | 0.60 | **1.0 (perfect)** |
+| executionTimeMillis | 4ms | **1ms** |
+
+> ✅ **Result:** The compound index eliminates all unnecessary document reads. `totalDocsExamined` now exactly equals `nReturned` — every document fetched was a match.
+
+---
+
+### Example 2 — Equality + Sort
+
+**Scenario:** Find Electronics products sorted by rating (highest first).
+
+```javascript
+// Query: Find Electronics products sorted by rating (highest first)
+db.products.find({ category: "Electronics" }).sort({ rating: -1 }).explain("executionStats");
+```
+
+**Without a compound index (using only `{ category: 1 }`):**
+
+```json
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "SORT",
+      "sortPattern": { "rating": -1 },
+      "inputStage": {
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": { "category": 1 },
+          "indexName": "category_1"
+        }
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 30,
+    "executionTimeMillis": 8,
+    "totalKeysExamined": 30,
+    "totalDocsExamined": 30
+  }
+}
+```
+
+> ⚠️ **Problem:** The `SORT` stage appears in the winning plan. This means DocumentDB fetched all 30 Electronics documents and sorted them **in memory** after the IXSCAN. At production scale with thousands of documents, in-memory sorts are slow and memory-intensive.
+
+Now apply the ESR rule — Equality (`category`) first, Sort (`rating`) next:
+
+```javascript
+// ESR Rule: Equality (category) → Sort (rating descending)
+db.products.createIndex({ category: 1, rating: -1 });
+```
+
+**Re-run the same query:**
+
+```json
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "FETCH",
+      "inputStage": {
+        "stage": "IXSCAN",
+        "keyPattern": { "category": 1, "rating": -1 },
+        "indexName": "category_1_rating_-1",
+        "indexBounds": {
+          "category": ["[\"Electronics\", \"Electronics\"]"],
+          "rating": ["[MaxKey, MinKey]"]
+        }
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 30,
+    "executionTimeMillis": 2,
+    "totalKeysExamined": 30,
+    "totalDocsExamined": 30
+  }
+}
+```
+
+| Metric | Without compound index | With `{ category: 1, rating: -1 }` |
+|--------|------------------------|-------------------------------------|
+| SORT stage | ❌ Present (in-memory) | ✅ **Eliminated** |
+| executionTimeMillis | 8ms | **2ms** |
+| Index-backed sort | ❌ No | ✅ **Yes** |
+
+> ✅ **Result:** The `SORT` stage is eliminated. The compound index stores documents pre-sorted by `rating` within each `category`, so DocumentDB delivers them in the correct order directly from the index scan — no in-memory sort required.
+
+---
+
+### Example 3 — Compound Index with Projection (Efficient Targeted Scan)
+
+**Scenario:** Get only `status` and `total` for eastus orders, excluding all other fields.
+
+```javascript
+// Query: Get only status and total for eastus orders
+db.orders.find(
+  { region: "eastus" },
+  { _id: 0, status: 1, total: 1 }
+).explain("executionStats");
+```
+
+Create a compound index that includes the filter field **and** all projected fields:
+
+```javascript
+// Index includes: filter field (region) + projected fields (status, total)
+db.orders.createIndex({ region: 1, status: 1, total: 1 });
+```
+
+**Sample `.explain()` output:**
+
+```json
+{
+  "queryPlanner": {
+    "winningPlan": {
+      "stage": "PROJECTION_SIMPLE",
+      "inputStage": {
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": { "region": 1, "status": 1, "total": 1 },
+          "indexName": "region_1_status_1_total_1",
+          "indexBounds": {
+            "region": ["[\"eastus\", \"eastus\"]"],
+            "status": ["[MinKey, MaxKey]"],
+            "total": ["[MinKey, MaxKey]"]
+          }
+        }
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 30,
+    "executionTimeMillis": 1,
+    "totalKeysExamined": 30,
+    "totalDocsExamined": 30
+  }
+}
+```
+
+> ⚠️ **Azure DocumentDB note:** Unlike native MongoDB, Azure DocumentDB does **not** currently support fully covered queries where `totalDocsExamined` is 0. Even when all projected fields are in the index, DocumentDB still fetches matching documents. The key benefit is that the IXSCAN narrows the scan to **only matching documents** (achieving a perfect 1.0 efficiency ratio), and the **projection reduces data transferred** to the client.
+
+| Metric | Without compound+projection index | With `{ region: 1, status: 1, total: 1 }` |
+|--------|------------------------------------|-------------------------------------------|
+| totalDocsExamined | 80 (COLLSCAN) | **30** (only matching docs) |
+| nReturned | 30 | 30 |
+| Efficiency ratio | 0.375 | **1.0 (perfect)** |
+| Data transferred | Full documents | **Only status + total fields** |
+
+> ✅ **Result:** The compound index narrows the scan to only the 30 eastus documents (efficiency = 1.0), and the projection ensures only `status` and `total` are sent over the network — minimizing both server-side work and network overhead.
+
+---
+
+### Summary Table: Index Patterns for `find()` Queries
+
+| Pattern | Index | Stage | docsExamined vs nReturned | Performance |
+|---------|-------|-------|--------------------------|-------------|
+| No index | — | `COLLSCAN` | All docs >> nReturned | ❌ Worst |
+| Single field (one filter) | `{ region: 1 }` | `IXSCAN` → `FETCH` | Only matching (1 field) docs | ✅ Good |
+| Compound (two equality filters) | `{ region: 1, status: 1 }` | `IXSCAN` → `FETCH` | Only exact matches | ✅ Better |
+| Compound (equality + sort) | `{ category: 1, rating: -1 }` | `IXSCAN` → `FETCH` (no SORT) | Only matching, pre-sorted | ✅ Better |
+| Compound + projection | `{ region: 1, status: 1, total: 1 }` | `IXSCAN` → `FETCH` → `PROJECTION` | Only matching docs, less data sent | ✅ Best |
+
+---
+
+### ⚠️ When NOT to Over-Index
+
+Every index has a cost:
+- **Storage:** Each index is a separate B-tree that consumes disk space
+- **Write overhead:** Every `insert`, `update`, and `delete` must update all indexes on the collection
+- **Maintenance:** More indexes = more complexity when troubleshooting performance
+
+**Guidelines:**
+- Create indexes for queries that are **frequent** and **critical** (high user-facing impact)
+- Avoid creating an index for every possible field combination
+- Use `$indexStats` to identify indexes that are rarely used and consider dropping them
+- For low-frequency queries (e.g., monthly reports), a brief COLLSCAN may be acceptable
+
+> 🔗 **Next step:** For advanced compound index design including the full ESR rule, range query optimization, and index intersection, see [L200: Advanced Optimization](L200_Cost_Optimization.md).
+
+---
+
 ## Part 4: Common Performance Patterns
 
 ### 4.1 Pattern Summary
@@ -392,12 +672,12 @@ db.orders.dropIndex("region_1");
 db.orders.dropIndex("status_1_total_1");
 ```
 
-> 💡 **Note:** Lab 1 will guide you through creating indexes from scratch, so dropping them here gives you a clean starting point.
+> 💡 **Note:** The Hands-On Lab will guide you through creating indexes from scratch, so dropping them here gives you a clean starting point.
 
 ---
 
-✅ **Checkpoint:** You can now read `.explain()` output and identify the difference between collection scans, index scans, and compound index + projection queries. You're ready for [Lab 1: Index Optimization](Lab1_Index_Optimization.md)!
+✅ **Checkpoint:** You can now read `.explain()` output and identify the difference between collection scans, index scans, and compound index + projection queries. You're ready for [Hands-On Lab: Performance Optimization](Lab_Hands_On.md)!
 
 ---
 
-[← Back to Module Overview](README.md) | [Next: Lab 1 — Index Optimization →](Lab1_Index_Optimization.md)
+[← Back to Module Overview](README.md) | [Next: Hands-On Lab →](Lab_Hands_On.md)
