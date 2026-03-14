@@ -81,8 +81,6 @@ Three verbosity levels:
 For performance analysis, always use **`"executionStats"`**:
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({ region: "eastus" }).explain("executionStats");
 ```
 
@@ -123,8 +121,6 @@ Let's run three queries against our sample data and analyze their `.explain()` o
 Run this query in your VSCode DocumentDB scrapbook:
 
 ```javascript
-use("ecommerce");
-
 // Query: Find all orders in the "eastus" region
 db.orders.find({ region: "eastus" }).explain("executionStats");
 ```
@@ -173,8 +169,6 @@ db.orders.find({ region: "eastus" }).explain("executionStats");
 First, create an index on the `region` field:
 
 ```javascript
-use("ecommerce");
-
 // Create a single-field index on region
 db.orders.createIndex({ region: 1 });
 ```
@@ -182,8 +176,6 @@ db.orders.createIndex({ region: 1 });
 Now re-run the same query with `.explain()`:
 
 ```javascript
-use("ecommerce");
-
 // Same query, but now an index exists
 db.orders.find({ region: "eastus" }).explain("executionStats");
 ```
@@ -243,8 +235,6 @@ For a query to be covered:
 3. The `_id` field must be excluded from the projection (unless it's in the index)
 
 ```javascript
-use("ecommerce");
-
 // Create a compound index that covers the query
 db.orders.createIndex({ status: 1, total: 1 });
 ```
@@ -252,8 +242,6 @@ db.orders.createIndex({ status: 1, total: 1 });
 Now run a covered query:
 
 ```javascript
-use("ecommerce");
-
 // Covered query: only request fields that exist in the index
 db.orders.find(
   { status: "delivered" },
@@ -378,8 +366,6 @@ executionStats.executionTimeMillis      → How long did it take?
 If you want to reset indexes before the next module, drop the ones created in this lesson:
 
 ```javascript
-use("ecommerce");
-
 db.orders.dropIndex("region_1");
 db.orders.dropIndex("status_1_total_1");
 ```
