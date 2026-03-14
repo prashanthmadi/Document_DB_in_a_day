@@ -129,7 +129,7 @@ Efficiency = nReturned / totalDocsExamined
 
 ---
 
-## Part 3: Reading `.explain()` Output — Three Walkthroughs
+## Part 3: Reading `.explain()` Output — Walkthroughs
 
 Let's run queries against our sample data and analyze their `.explain()` output in detail.
 
