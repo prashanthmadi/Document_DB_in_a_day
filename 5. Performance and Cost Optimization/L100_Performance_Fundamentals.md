@@ -131,7 +131,7 @@ Efficiency = nReturned / totalDocsExamined
 
 ## Part 3: Reading `.explain()` Output — Three Walkthroughs
 
-Let's run three queries against our sample data and analyze their `.explain()` output in detail.
+Let's run queries against our sample data and analyze their `.explain()` output in detail.
 
 ### 3.1 Example 1: Collection Scan (COLLSCAN) — No Index
 
@@ -239,80 +239,6 @@ db.orders.find({ region: "eastus" }).explain("executionStats");
 **🔍 Analysis:** With the index, the efficiency ratio is 30/30 = **1.0 (perfect)**. The server only examined documents that matched the query. Execution time dropped from 12ms to 2ms.
 
 > ✅ **Result:** Adding a single index reduced documents examined from 80 → 30 and execution time from 12ms → 2ms.
-
----
-
-### 3.3 Example 3: Compound Index with Projection — Efficient Targeted Scan
-
-A **compound index with a projection** is an important optimization pattern. By including all projected fields in a compound index, the query engine can narrow the index scan to only matching documents while also reducing the amount of data sent to the client.
-
-For this pattern to work effectively:
-1. All fields in the **filter** must be in the index
-2. All fields in the **projection** should be in the index (reduces data transfer)
-3. The `_id` field should be excluded from the projection (unless needed)
-
-> ⚠️ **Azure DocumentDB Note:** Unlike native MongoDB, Azure DocumentDB does **not** currently support fully covered queries where `totalDocsExamined` equals 0. Even when all projected fields are in the index, DocumentDB still fetches the matching documents. The benefit is that the IXSCAN narrows the scan to only matching documents, and the projection reduces the data sent to the client.
-
-```javascript
-// Create a compound index that covers the query
-db.orders.createIndex({ status: 1, total: 1 });
-```
-
-Now run the query with a projection:
-
-```javascript
-// Projection query: only request fields that exist in the index
-db.orders.find(
-  { status: "delivered" },
-  { _id: 0, status: 1, total: 1 }
-).explain("executionStats");
-```
-
-**Sample `.explain()` output:**
-
-```json
-{
-  "queryPlanner": {
-    "winningPlan": {
-      "stage": "PROJECTION_SIMPLE",
-      "inputStage": {
-        "stage": "FETCH",
-        "inputStage": {
-          "stage": "IXSCAN",
-          "keyPattern": { "status": 1, "total": 1 },
-          "indexName": "status_1_total_1",
-          "direction": "forward",
-          "indexBounds": {
-            "status": ["[\"delivered\", \"delivered\"]"],
-            "total": ["[MinKey, MaxKey]"]
-          }
-        }
-      }
-    }
-  },
-  "executionStats": {
-    "executionSuccess": true,
-    "nReturned": 60,
-    "executionTimeMillis": 1,
-    "totalKeysExamined": 60,
-    "totalDocsExamined": 60
-  }
-}
-```
-
-**📖 How to Read This:**
-
-| Field | Value | Interpretation |
-|-------|-------|----------------|
-| `stage` | `PROJECTION_SIMPLE` → `FETCH` → `IXSCAN` | ✅ Index scan, then fetches only matching documents |
-| `nReturned` | `60` | 60 delivered orders found |
-| `totalDocsExamined` | `60` | Only matching documents fetched (equals nReturned — perfect efficiency) |
-| `totalKeysExamined` | `60` | 60 index entries scanned |
-| `executionTimeMillis` | `1` | 1ms — very fast execution |
-
-**🔍 Analysis:** The compound index + projection combination is highly efficient. `totalDocsExamined` equals `nReturned` (60/60 = 1.0 — perfect ratio), meaning the IXSCAN eliminated all non-matching documents. The projection further reduces data transferred to the client. This is the recommended pattern for Azure DocumentDB.
-
-> ✅ **Best Practice:** Use projections with compound indexes to minimize both scan scope and data transfer. In Azure DocumentDB, the index narrows the fetch to only matching documents (achieving a 1.0 efficiency ratio), and the projection reduces network overhead.
 
 ---
 
