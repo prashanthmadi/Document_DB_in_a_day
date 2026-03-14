@@ -21,15 +21,13 @@ In this lab, you will analyze workload patterns, evaluate index efficiency, iden
 
 ## Lab Setup
 
-```javascript
-use("ecommerce");
+> 💡 **Note:** Select the `ecommerce` database from the VSCode DocumentDB extension's connection panel before running any commands. The `use()` command is not supported in the DocumentDB extension scrapbook.
 
+```javascript
 // Clean slate
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ Ready for Lab 3");
 ```
 
 ---
@@ -43,36 +41,26 @@ print("✅ Ready for Lab 3");
 In a real application, you would check the slow query log. For this lab, we'll simulate the most common queries from a typical e-commerce application:
 
 ```javascript
-use("ecommerce");
-
 // Query Pattern 1: Order lookup by customer (customer support portal)
 db.orders.find({ customerId: "CUST001" }).sort({ orderDate: -1 }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Query Pattern 2: Product search by category + sort by rating (storefront)
 db.products.find({ category: "Electronics" }).sort({ rating: -1 }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Query Pattern 3: Order status filter (operations dashboard)
 db.orders.find({ status: "pending" }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Query Pattern 4: Customer lookup by region + tier (marketing)
 db.customers.find({ region: "eastus", tier: "premium" }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Query Pattern 5: Revenue analytics (finance dashboard)
 db.orders.aggregate([
   { $match: { status: "delivered" } },
@@ -124,8 +112,6 @@ Consider which queries can share indexes. A compound index on `{ A: 1, B: 1 }` s
 ### Step 2: Create the indexes
 
 ```javascript
-use("ecommerce");
-
 // Index 1: Orders — supports customer lookup + sort (Pattern 1)
 db.orders.createIndex({ customerId: 1, orderDate: -1 });
 
@@ -137,8 +123,6 @@ db.products.createIndex({ category: 1, rating: -1 });
 
 // Index 4: Customers — supports region + tier lookup (Pattern 4)
 db.customers.createIndex({ region: 1, tier: 1 });
-
-print("✅ Created 4 indexes to support 5 query patterns");
 ```
 
 > 💡 **Notice:** We created only **4 indexes** to support **5 query patterns**. Index 2 (`status: 1`) supports both Pattern 3 (status filter) and Pattern 5 (aggregation `$match` on status). This is efficient index design.
@@ -148,36 +132,26 @@ print("✅ Created 4 indexes to support 5 query patterns");
 Re-run all 5 queries with `.explain()` and confirm they all show `IXSCAN`:
 
 ```javascript
-use("ecommerce");
-
 // Verify Pattern 1
 db.orders.find({ customerId: "CUST001" }).sort({ orderDate: -1 }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Verify Pattern 2
 db.products.find({ category: "Electronics" }).sort({ rating: -1 }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Verify Pattern 3
 db.orders.find({ status: "pending" }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Verify Pattern 4
 db.customers.find({ region: "eastus", tier: "premium" }).explain("executionStats");
 ```
 
 ```javascript
-use("ecommerce");
-
 // Verify Pattern 5
 db.orders.explain("executionStats").aggregate([
   { $match: { status: "delivered" } },
@@ -209,27 +183,21 @@ db.orders.explain("executionStats").aggregate([
 ### Step 1: Add a "legacy" index that nobody uses
 
 ```javascript
-use("ecommerce");
-
 // Simulate a leftover index from an old feature
 db.orders.createIndex({ paymentMethod: 1, deliveredAt: 1 });
 db.products.createIndex({ vendor: 1, warehouse: 1 });
-
-print("✅ Added 2 'legacy' indexes");
 ```
 
 ### Step 2: Check index usage statistics
 
-```javascript
-use("ecommerce");
+> 💡 **Note:** `$indexStats` support in Azure DocumentDB may vary. If this command returns an error, you can check index usage through the Azure Portal metrics instead.
 
+```javascript
 // Check which indexes have been used
 db.orders.aggregate([{ $indexStats: {} }]);
 ```
 
 ```javascript
-use("ecommerce");
-
 db.products.aggregate([{ $indexStats: {} }]);
 ```
 
@@ -242,28 +210,23 @@ The `$indexStats` output shows an `accesses.ops` field — the number of times e
 ### Step 4: Remove unused indexes
 
 ```javascript
-use("ecommerce");
-
 // Remove indexes that have zero or very low usage
 db.orders.dropIndex("paymentMethod_1_deliveredAt_1");
 db.products.dropIndex("vendor_1_warehouse_1");
-
-print("✅ Removed 2 unused indexes");
 ```
 
 ### Step 5: Review the final index set
 
 ```javascript
-use("ecommerce");
+db.orders.getIndexes();
+```
 
-print("📊 Orders indexes:");
-printjson(db.orders.getIndexes());
+```javascript
+db.products.getIndexes();
+```
 
-print("\n📊 Products indexes:");
-printjson(db.products.getIndexes());
-
-print("\n📊 Customers indexes:");
-printjson(db.customers.getIndexes());
+```javascript
+db.customers.getIndexes();
 ```
 
 <details>
@@ -295,8 +258,6 @@ printjson(db.customers.getIndexes());
 ### Step 1: Run a complex analytics query
 
 ```javascript
-use("ecommerce");
-
 // Complex query: Top spending customers with their order details
 db.orders.aggregate([
   { $match: { status: "delivered" } },
@@ -394,13 +355,9 @@ After Optimization:
 ## 🧹 Cleanup
 
 ```javascript
-use("ecommerce");
-
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ Lab 3 cleanup complete");
 ```
 
 ---

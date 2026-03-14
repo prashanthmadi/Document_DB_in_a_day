@@ -29,8 +29,6 @@
 Single-field indexes work well for simple queries, but real applications often filter, sort, and range-query on multiple fields. Compound indexes support these complex patterns efficiently.
 
 ```javascript
-use("ecommerce");
-
 // This query filters on TWO fields — a single-field index on "category"
 // won't fully optimize it:
 db.products.find({
@@ -52,8 +50,6 @@ The **ESR rule** is the guiding principle for ordering fields in a compound inde
 For the query above, the optimal compound index is:
 
 ```javascript
-use("ecommerce");
-
 // ESR: Equality (category) → Sort (rating) → Range (price)
 db.products.createIndex({ category: 1, rating: -1, price: 1 });
 ```
@@ -66,8 +62,6 @@ db.products.createIndex({ category: 1, rating: -1, price: 1 });
 ### 1.3 Compound Index Example
 
 ```javascript
-use("ecommerce");
-
 // Query: Find Electronics under $50, sorted by rating (highest first)
 db.products.find(
   { category: "Electronics", price: { $lt: 50 } }
@@ -96,8 +90,6 @@ By default, `find()` returns all fields in matching documents. Projections let y
 ### 2.2 Projection Best Practices
 
 ```javascript
-use("ecommerce");
-
 // ❌ BAD: Returns all fields (including the full items array)
 db.orders.find({ status: "delivered" });
 
@@ -111,8 +103,6 @@ db.orders.find(
 ### 2.3 Measuring the Impact
 
 ```javascript
-use("ecommerce");
-
 // Compare: Full document vs projected fields
 // Full document query
 db.orders.find({ region: "eastus" }).explain("executionStats");
@@ -137,8 +127,6 @@ The order of stages in an aggregation pipeline has a major impact on performance
 > **Filter early, transform late.** Place `$match` and `$limit` as early as possible to reduce the number of documents flowing through the pipeline.
 
 ```javascript
-use("ecommerce");
-
 // ❌ BAD: Processes all 80 orders through $lookup before filtering
 db.orders.aggregate([
   { $unwind: "$items" },
@@ -166,8 +154,6 @@ db.orders.aggregate([
 ### 3.3 Example: Optimized Aggregation Pipeline
 
 ```javascript
-use("ecommerce");
-
 // Find top 5 customers by total order value (delivered orders only)
 db.orders.aggregate([
   // Stage 1: Filter early — uses index on status if available
@@ -269,9 +255,8 @@ Indexes improve read performance but have costs:
 - Prefer compound indexes over multiple single-field indexes
 
 ```javascript
-use("ecommerce");
-
 // Check index usage statistics
+// 💡 Note: $indexStats support in Azure DocumentDB may vary. If this command returns an error, you can check index usage through the Azure Portal metrics instead.
 db.orders.aggregate([{ $indexStats: {} }]);
 ```
 
@@ -285,8 +270,6 @@ Reduce storage costs by:
 4. **Use TTL indexes** for data that expires
 
 ```javascript
-use("ecommerce");
-
 // Example: TTL index to auto-delete pending orders after 30 days
 // (Demonstration only — do NOT run this on the training data)
 // db.orders.createIndex(
@@ -354,8 +337,6 @@ Slow query?
 Drop indexes created during this module:
 
 ```javascript
-use("ecommerce");
-
 db.products.dropIndex("category_1_rating_-1_price_1");
 ```
 

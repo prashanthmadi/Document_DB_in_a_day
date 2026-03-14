@@ -67,9 +67,9 @@ db.orders.find({ status: "delivered" });
 With a very small dataset (e.g., **80 documents**), adding an index can actually **degrade performance**. This is an expected behavior.
 
 ### Without Index — **COLLSCAN (Collection Scan)**
-- MongoDB scans all documents sequentially
+- DocumentDB scans all documents sequentially
 - 80 documents fit entirely in RAM
-- Single linear read from WiredTiger cache
+- Single linear read from memory/cache
 - **Minimal overhead and very fast**
 
 ### With Index — **IXSCAN (Index Scan)**
@@ -242,24 +242,26 @@ db.orders.find({ region: "eastus" }).explain("executionStats");
 
 ---
 
-### 3.3 Example 3: Covered Query — Index-Only Execution
+### 3.3 Example 3: Compound Index with Projection — Efficient Targeted Scan
 
-A **covered query** is the fastest possible query type. The query can be answered entirely from the index without fetching any documents.
+A **compound index with a projection** is an important optimization pattern. By including all projected fields in a compound index, the query engine can narrow the index scan to only matching documents while also reducing the amount of data sent to the client.
 
-For a query to be covered:
+For this pattern to work effectively:
 1. All fields in the **filter** must be in the index
-2. All fields in the **projection** must be in the index
-3. The `_id` field must be excluded from the projection (unless it's in the index)
+2. All fields in the **projection** should be in the index (reduces data transfer)
+3. The `_id` field should be excluded from the projection (unless needed)
+
+> ⚠️ **Azure DocumentDB Note:** Unlike native MongoDB, Azure DocumentDB does **not** currently support fully covered queries where `totalDocsExamined` equals 0. Even when all projected fields are in the index, DocumentDB still fetches the matching documents. The benefit is that the IXSCAN narrows the scan to only matching documents, and the projection reduces the data sent to the client.
 
 ```javascript
 // Create a compound index that covers the query
 db.orders.createIndex({ status: 1, total: 1 });
 ```
 
-Now run a covered query:
+Now run the query with a projection:
 
 ```javascript
-// Covered query: only request fields that exist in the index
+// Projection query: only request fields that exist in the index
 db.orders.find(
   { status: "delivered" },
   { _id: 0, status: 1, total: 1 }
@@ -272,15 +274,18 @@ db.orders.find(
 {
   "queryPlanner": {
     "winningPlan": {
-      "stage": "PROJECTION_COVERED",
+      "stage": "PROJECTION_SIMPLE",
       "inputStage": {
-        "stage": "IXSCAN",
-        "keyPattern": { "status": 1, "total": 1 },
-        "indexName": "status_1_total_1",
-        "direction": "forward",
-        "indexBounds": {
-          "status": ["[\"delivered\", \"delivered\"]"],
-          "total": ["[MinKey, MaxKey]"]
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": { "status": 1, "total": 1 },
+          "indexName": "status_1_total_1",
+          "direction": "forward",
+          "indexBounds": {
+            "status": ["[\"delivered\", \"delivered\"]"],
+            "total": ["[MinKey, MaxKey]"]
+          }
         }
       }
     }
@@ -290,7 +295,7 @@ db.orders.find(
     "nReturned": 60,
     "executionTimeMillis": 1,
     "totalKeysExamined": 60,
-    "totalDocsExamined": 0
+    "totalDocsExamined": 60
   }
 }
 ```
@@ -299,15 +304,15 @@ db.orders.find(
 
 | Field | Value | Interpretation |
 |-------|-------|----------------|
-| `stage` | `PROJECTION_COVERED` | ✅ Covered query — answered entirely from the index |
+| `stage` | `PROJECTION_SIMPLE` → `FETCH` → `IXSCAN` | ✅ Index scan, then fetches only matching documents |
 | `nReturned` | `60` | 60 delivered orders found |
-| `totalDocsExamined` | `0` | 🎯 **Zero documents fetched** — all data came from the index |
+| `totalDocsExamined` | `60` | Only matching documents fetched (equals nReturned — perfect efficiency) |
 | `totalKeysExamined` | `60` | 60 index entries scanned |
-| `executionTimeMillis` | `1` | 1ms — fastest possible execution |
+| `executionTimeMillis` | `1` | 1ms — very fast execution |
 
-**🔍 Analysis:** The `PROJECTION_COVERED` stage means DocumentDB answered the query entirely from the index. **Zero documents** were fetched from storage. This is the most efficient query pattern — it minimizes both I/O and memory usage.
+**🔍 Analysis:** The compound index + projection combination is highly efficient. `totalDocsExamined` equals `nReturned` (60/60 = 1.0 — perfect ratio), meaning the IXSCAN eliminated all non-matching documents. The projection further reduces data transferred to the client. This is the recommended pattern for Azure DocumentDB.
 
-> 🎯 **Best Case:** Covered queries are the gold standard. Design your indexes and projections to achieve `totalDocsExamined: 0` for your most frequent queries.
+> ✅ **Best Practice:** Use projections with compound indexes to minimize both scan scope and data transfer. In Azure DocumentDB, the index narrows the fetch to only matching documents (achieving a 1.0 efficiency ratio), and the projection reduces network overhead.
 
 ---
 
@@ -320,7 +325,7 @@ db.orders.find(
 | No index | `COLLSCAN` | All documents | ❌ Worst |
 | Single-field index | `IXSCAN` → `FETCH` | Only matching docs | ✅ Good |
 | Compound index | `IXSCAN` → `FETCH` | Only matching docs (narrower scan) | ✅ Better |
-| Covered query | `PROJECTION_COVERED` | Zero documents | 🎯 Best |
+| Compound index + projection | `IXSCAN` → `FETCH` | Only matching docs | ✅ Best with projection |
 
 ### 4.2 Warning Signs in `.explain()` Output
 
@@ -349,7 +354,7 @@ Watch for these red flags:
 1. **Always use `.explain("executionStats")`** to understand how your queries perform
 2. **COLLSCAN = performance risk** — add an index for any query that hits production
 3. **Check the efficiency ratio** — `nReturned` should be close to `totalDocsExamined`
-4. **Covered queries are the gold standard** — `totalDocsExamined: 0` means zero storage I/O
+4. **Use projections with compound indexes** — this minimizes both scan scope and data transfer; Azure DocumentDB still fetches matching documents but the IXSCAN ensures only relevant documents are read
 5. **Indexes cost storage and write throughput** — don't create indexes you don't need
 
 ---
@@ -391,7 +396,7 @@ db.orders.dropIndex("status_1_total_1");
 
 ---
 
-✅ **Checkpoint:** You can now read `.explain()` output and identify the difference between collection scans, index scans, and covered queries. You're ready for [Lab 1: Index Optimization](Lab1_Index_Optimization.md)!
+✅ **Checkpoint:** You can now read `.explain()` output and identify the difference between collection scans, index scans, and compound index + projection queries. You're ready for [Lab 1: Index Optimization](Lab1_Index_Optimization.md)!
 
 ---
 

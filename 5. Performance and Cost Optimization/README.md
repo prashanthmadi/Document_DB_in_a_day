@@ -130,7 +130,7 @@ Advanced query optimization and cost management.
 ├── Lab3_Scaling_Strategy.md           ← Hands-on lab 3
 ├── Exercises.md                       ← Knowledge check (3 questions)
 └── sample-data/
-    └── ecommerce_data.js              ← Sample data script
+    └── ecommerce_data.vscode-documentdb-scrapbook  ← Sample data script
 ```
 
 ---

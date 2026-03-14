@@ -21,20 +21,20 @@ Create the `ecommerce` database with three collections (`products`, `customers`,
 
 ## Step 1: Open the Sample Data Script
 
-1. In VSCode, open the file: `5. Performance and Cost Optimization/sample-data/ecommerce_data.js`
-2. This is a **MongoDB Scrapbook** file that the DocumentDB extension can execute directly
+1. In VSCode, open the file: `5. Performance and Cost Optimization/sample-data/ecommerce_data.vscode-documentdb-scrapbook`
+2. This is a **DocumentDB Scrapbook** file that the VSCode DocumentDB extension can execute directly
 
-> 💡 **Tip:** In the VSCode DocumentDB extension, `.js` files are treated as MongoDB Scrapbooks. You can run the entire file or individual sections by selecting text and clicking **Run Selected**.
+> 💡 **Tip:** The `.vscode-documentdb-scrapbook` file extension is recognized by the VSCode DocumentDB extension as a scrapbook. You can run the entire file or individual sections by selecting text and clicking **Run Selected**. Before running, make sure to select your target database from the extension's connection panel in the sidebar.
 
 ---
 
 ## Step 2: Run the Script
 
 1. Make sure your DocumentDB connection is active in the extension sidebar
-2. Open `sample-data/ecommerce_data.js`
-3. Click **Run All** (▶️) at the top of the scrapbook, or press `Ctrl+Alt+Enter`
-4. The script will:
-   - Switch to (or create) the `ecommerce` database
+2. Open `sample-data/ecommerce_data.vscode-documentdb-scrapbook`
+3. In the extension's connection panel, select the **`ecommerce`** database (it will be created if it doesn't exist)
+4. Click **Run All** (▶️) at the top of the scrapbook, or press `Ctrl+Alt+Enter`
+5. The script will:
    - Drop any existing collections (for a clean setup)
    - Insert **50 products**, **30 customers**, and **80 orders**
 
@@ -42,11 +42,11 @@ Create the `ecommerce` database with three collections (`products`, `customers`,
 
 ## Step 3: Verify the Data
 
-After the script completes, run these verification queries in a new scrapbook or inline:
+After the script completes, run these verification queries in a new scrapbook:
+
+> 💡 **Note:** Select the `ecommerce` database from the VSCode DocumentDB extension's connection panel before running any commands. The `use()` command is not supported in the DocumentDB extension scrapbook.
 
 ```javascript
-use("ecommerce");
-
 // Check document counts
 db.products.countDocuments();    // Expected: 50
 db.customers.countDocuments();   // Expected: 30
@@ -67,8 +67,6 @@ You should see:
 Run these queries to familiarize yourself with the data:
 
 ```javascript
-use("ecommerce");
-
 // View a sample product
 db.products.findOne({ _id: "PROD001" });
 ```
