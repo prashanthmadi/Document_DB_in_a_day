@@ -22,21 +22,15 @@ In this lab, you will create indexes, compare query plans before and after index
 
 Open a new MongoDB Scrapbook in VSCode (or use an existing one). Make sure you are connected to your DocumentDB cluster.
 
-```javascript
-use("ecommerce");
-```
+> 💡 **Note:** Select the `ecommerce` database from the VSCode DocumentDB extension's connection panel before running any commands. The `use()` command is not supported in the DocumentDB extension scrapbook.
 
 First, let's drop any indexes from previous exercises to start clean (this keeps the default `_id` index):
 
 ```javascript
-use("ecommerce");
-
 // Reset indexes on all collections
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ All non-default indexes dropped");
 ```
 
 ---
@@ -48,8 +42,6 @@ print("✅ All non-default indexes dropped");
 ### Step 1: Run the query with `.explain()`
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({ status: "delivered" }).explain("executionStats");
 ```
 
@@ -71,17 +63,12 @@ Look for these fields in the output:
 ### Step 3: Create a single-field index
 
 ```javascript
-use("ecommerce");
-
 db.orders.createIndex({ status: 1 });
-print("✅ Created index on 'status'");
 ```
 
 ### Step 4: Re-run the query
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({ status: "delivered" }).explain("executionStats");
 ```
 
@@ -116,8 +103,6 @@ The index reduced `totalDocsExamined` to match `nReturned` — the server no lon
 ### Step 1: Test without a compound index
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({
   region: "eastus",
   status: "delivered"
@@ -133,19 +118,14 @@ The `status` index from Exercise 1 may be used, but it's not optimal for this tw
 Following the **ESR rule** (Equality first):
 
 ```javascript
-use("ecommerce");
-
 // Both fields are equality matches, so order by selectivity
 // "status" has fewer unique values, "region" has more — put the more selective field first
 db.orders.createIndex({ region: 1, status: 1 });
-print("✅ Created compound index on { region: 1, status: 1 }");
 ```
 
 ### Step 3: Re-run the query
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({
   region: "eastus",
   status: "delivered"
@@ -167,25 +147,22 @@ The compound index `{ region: 1, status: 1 }` should now be used. `totalDocsExam
 
 ---
 
-## Exercise 3: Covered Query
+## Exercise 3: Compound Index with Projection
 
-**Scenario:** Your reporting service only needs the order `total` and `status` — no other fields. Can we make this a covered query?
+**Scenario:** Your reporting service only needs the order `total` and `status` — no other fields. Let's use a compound index and projection to optimize this.
+
+> ⚠️ **Azure DocumentDB Note:** In Azure DocumentDB, `totalDocsExamined` will equal `nReturned` (not 0) even when all projected fields are in the index. The benefit is that the IXSCAN narrows the fetch to only matching documents (perfect 1.0 efficiency ratio), and the projection reduces data transferred to the client.
 
 ### Step 1: Create an index that covers the query
 
 ```javascript
-use("ecommerce");
-
 // Index covers: filter field (region) + returned fields (status, total)
 db.orders.createIndex({ region: 1, status: 1, total: 1 });
-print("✅ Created covering index on { region: 1, status: 1, total: 1 }");
 ```
 
-### Step 2: Run a covered query
+### Step 2: Run a query with projection
 
 ```javascript
-use("ecommerce");
-
 // Projection must only include fields in the index + exclude _id
 db.orders.find(
   { region: "eastus" },
@@ -193,24 +170,24 @@ db.orders.find(
 ).explain("executionStats");
 ```
 
-### Step 3: Verify it's covered
+### Step 3: Verify the results
 
 📝 **Check these values:**
-- `totalDocsExamined` → Should be **0** (covered query!)
+- `totalDocsExamined` → Should match `nReturned` (~30) — IXSCAN fetches only matching docs
 - `totalKeysExamined` → Should match `nReturned`
-- `winningPlan.stage` → Should include `PROJECTION_COVERED`
+- `winningPlan.stage` → Should include `IXSCAN` → `FETCH`
 
 <details>
 <summary>✅ Expected Results</summary>
 
 ```
-totalDocsExamined: 0    ← No documents fetched from storage!
-totalKeysExamined: ~30  ← Only index keys were read
+totalDocsExamined: ~30  ← Only matching documents fetched (equals nReturned)
+totalKeysExamined: ~30  ← Only index keys for matching docs were read
 nReturned: ~30
-stage: PROJECTION_COVERED
+stage: IXSCAN → FETCH
 ```
 
-This is the most efficient query pattern possible. All data came from the index.
+In Azure DocumentDB, the compound index + projection combination achieves a **perfect 1.0 efficiency ratio** — only matching documents are fetched. The projection also reduces data transferred to the client. While `totalDocsExamined` is not 0 (as would be in native MongoDB covered queries), this is still a highly efficient pattern.
 
 </details>
 
@@ -223,8 +200,6 @@ This is the most efficient query pattern possible. All data came from the index.
 ### Step 1: Test sort without index support
 
 ```javascript
-use("ecommerce");
-
 db.products.find({ category: "Electronics" }).sort({ price: 1 }).explain("executionStats");
 ```
 
@@ -233,18 +208,13 @@ db.products.find({ category: "Electronics" }).sort({ price: 1 }).explain("execut
 ### Step 2: Create an index that supports the sort
 
 ```javascript
-use("ecommerce");
-
 // ESR: Equality (category) → Sort (price)
 db.products.createIndex({ category: 1, price: 1 });
-print("✅ Created index on { category: 1, price: 1 }");
 ```
 
 ### Step 3: Re-run the query
 
 ```javascript
-use("ecommerce");
-
 db.products.find({ category: "Electronics" }).sort({ price: 1 }).explain("executionStats");
 ```
 
@@ -258,7 +228,7 @@ db.products.find({ category: "Electronics" }).sort({ price: 1 }).explain("execut
 With the `{ category: 1, price: 1 }` compound index:
 - The `SORT` stage should be eliminated from the winning plan
 - The `IXSCAN` stage provides documents in the correct sort order
-- This is especially important at scale — in-memory sorts have a 100MB memory limit
+- This is especially important at scale — in-memory sorts have a memory limit that can impact performance on large result sets
 
 </details>
 
@@ -270,7 +240,7 @@ With the `{ category: 1, price: 1 }` compound index:
 |----------|---------|-------------|
 | 1 | Single-field index | Eliminates COLLSCAN, brings efficiency to ~1.0 |
 | 2 | Compound index | Supports multi-field filters efficiently |
-| 3 | Covered query | `totalDocsExamined: 0` — fastest possible query |
+| 3 | Compound index + projection | Efficient IXSCAN + reduced data transfer |
 | 4 | Sort optimization | Index-backed sort eliminates in-memory SORT stage |
 
 ---
@@ -280,13 +250,9 @@ With the `{ category: 1, price: 1 }` compound index:
 Drop all indexes created in this lab:
 
 ```javascript
-use("ecommerce");
-
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ Lab 1 cleanup complete");
 ```
 
 ---

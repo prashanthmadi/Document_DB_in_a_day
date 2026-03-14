@@ -23,15 +23,13 @@ In this lab, you will take slow, unoptimized queries and improve them step by st
 
 Open a MongoDB Scrapbook in VSCode and reset indexes:
 
-```javascript
-use("ecommerce");
+> 💡 **Note:** Select the `ecommerce` database from the VSCode DocumentDB extension's connection panel before running any commands. The `use()` command is not supported in the DocumentDB extension scrapbook.
 
+```javascript
 // Clean slate — drop all non-default indexes
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ Ready for Lab 2");
 ```
 
 ---
@@ -43,8 +41,6 @@ print("✅ Ready for Lab 2");
 ### Step 1: Run the unoptimized query
 
 ```javascript
-use("ecommerce");
-
 // Unoptimized: No index, no projection, fetches all fields
 db.products.find(
   { category: "Electronics" }
@@ -60,18 +56,13 @@ db.products.find(
 ### Step 2: Add a compound index (ESR rule)
 
 ```javascript
-use("ecommerce");
-
 // Equality (category) → Sort (rating descending)
 db.products.createIndex({ category: 1, rating: -1 });
-print("✅ Index created");
 ```
 
 ### Step 3: Run the query again with explain
 
 ```javascript
-use("ecommerce");
-
 db.products.find(
   { category: "Electronics" }
 ).sort({ rating: -1 }).explain("executionStats");
@@ -85,8 +76,6 @@ db.products.find(
 ### Step 4: Add a projection to reduce data transfer
 
 ```javascript
-use("ecommerce");
-
 // Only return what the search results page needs
 db.products.find(
   { category: "Electronics" },
@@ -99,8 +88,6 @@ Run it and see the results — notice how much smaller the response is compared 
 ### Step 5: Add a limit for pagination
 
 ```javascript
-use("ecommerce");
-
 // Real search pages show 10 results at a time
 db.products.find(
   { category: "Electronics" },
@@ -131,8 +118,6 @@ Each step progressively improves performance.
 ### Step 1: Run the unoptimized query
 
 ```javascript
-use("ecommerce");
-
 // Agent searches for a customer's orders
 db.orders.find(
   { customerId: "CUST005" }
@@ -144,18 +129,13 @@ db.orders.find(
 ### Step 2: Create an optimal index
 
 ```javascript
-use("ecommerce");
-
 // ESR: Equality (customerId) → Sort (orderDate descending)
 db.orders.createIndex({ customerId: 1, orderDate: -1 });
-print("✅ Index created");
 ```
 
 ### Step 3: Re-run with explain
 
 ```javascript
-use("ecommerce");
-
 db.orders.find(
   { customerId: "CUST005" }
 ).sort({ orderDate: -1 }).explain("executionStats");
@@ -164,8 +144,6 @@ db.orders.find(
 ### Step 4: Optimize with projection for the UI
 
 ```javascript
-use("ecommerce");
-
 // Support agent only needs: order date, status, total, and items summary
 db.orders.find(
   { customerId: "CUST005" },
@@ -176,7 +154,7 @@ db.orders.find(
 Expected output (most recent orders first):
 ```json
 [
-  { "_id": "ORD053", "orderDate": "2025-05-06", "status": "pending", "total": 389.97, "items": [{"name": "Drawing Tablet Pen"}, {"name": "Portable Monitor 15.6\""}] },
+  { "_id": "ORD053", "orderDate": "2025-05-06", "status": "pending", "total": 389.97, "items": [{"name": "Drawing Tablet Pen"}, {"name": "Portable Monitor 15.6 inch"}] },
   { "_id": "ORD035", "orderDate": "2025-04-18", "status": "delivered", "total": 869.94, "items": [{"name": "Thunderbolt 4 Dock"}, {"name": "External SSD 1TB"}] },
   { "_id": "ORD018", "orderDate": "2025-04-01", "status": "delivered", "total": 1089.96, "items": [{"name": "Executive Desk Large"}, {"name": "Ergonomic Office Chair"}, {"name": "Monitor Arm Mount"}] },
   { "_id": "ORD005", "orderDate": "2025-03-19", "status": "delivered", "total": 339.97, "items": [{"name": "Noise Cancelling Earbuds"}, {"name": "Laptop Stand Aluminum"}] }
@@ -202,8 +180,6 @@ With the `{ customerId: 1, orderDate: -1 }` index:
 ### Step 1: Run an unoptimized pipeline
 
 ```javascript
-use("ecommerce");
-
 // ❌ Unoptimized: No early filter, no index
 db.orders.aggregate([
   { $group: {
@@ -221,8 +197,6 @@ This processes ALL 80 orders (including non-delivered ones).
 ### Step 2: Add an early `$match` stage
 
 ```javascript
-use("ecommerce");
-
 // ✅ Filter to delivered orders FIRST
 db.orders.aggregate([
   { $match: { status: "delivered" } },
@@ -244,17 +218,12 @@ db.orders.aggregate([
 ### Step 3: Add an index to support the `$match`
 
 ```javascript
-use("ecommerce");
-
 db.orders.createIndex({ status: 1 });
-print("✅ Index created for aggregation $match");
 ```
 
 ### Step 4: Verify the pipeline uses the index
 
 ```javascript
-use("ecommerce");
-
 db.orders.explain("executionStats").aggregate([
   { $match: { status: "delivered" } },
   { $group: {
@@ -297,11 +266,9 @@ The first `$match` stage can use an index, so adding `{ status: 1 }` makes the p
 ### Step 1: Run without an index
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({
   total: { $gt: 500 },
-  orderDate: { $gte: new Date("2025-05-01") }
+  orderDate: { $gte: ISODate("2025-05-01") }
 }).sort({ total: -1 }).explain("executionStats");
 ```
 
@@ -313,33 +280,26 @@ For range queries with sort, consider the ESR rule:
 - Range on `total` and `orderDate`
 
 ```javascript
-use("ecommerce");
-
 // Since we sort by total and filter by total + orderDate:
 db.orders.createIndex({ total: -1, orderDate: 1 });
-print("✅ Index created for range query");
 ```
 
 ### Step 3: Re-run and compare
 
 ```javascript
-use("ecommerce");
-
 db.orders.find({
   total: { $gt: 500 },
-  orderDate: { $gte: new Date("2025-05-01") }
+  orderDate: { $gte: ISODate("2025-05-01") }
 }).sort({ total: -1 }).explain("executionStats");
 ```
 
 ### Step 4: Add projection for the finance report
 
 ```javascript
-use("ecommerce");
-
 db.orders.find(
   {
     total: { $gt: 500 },
-    orderDate: { $gte: new Date("2025-05-01") }
+    orderDate: { $gte: ISODate("2025-05-01") }
   },
   { _id: 1, customerId: 1, total: 1, orderDate: 1, status: 1 }
 ).sort({ total: -1 });
@@ -378,13 +338,9 @@ The index eliminates COLLSCAN and in-memory sort for this range query pattern.
 ## 🧹 Cleanup
 
 ```javascript
-use("ecommerce");
-
 db.orders.dropIndexes();
 db.products.dropIndexes();
 db.customers.dropIndexes();
-
-print("✅ Lab 2 cleanup complete");
 ```
 
 ---
