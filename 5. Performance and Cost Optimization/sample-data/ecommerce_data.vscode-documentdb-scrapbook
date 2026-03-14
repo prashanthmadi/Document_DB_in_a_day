@@ -12,16 +12,12 @@
 // in the Performance & Cost Optimization training.
 // ============================================================
 
----
-
 // ----------------------------------------------------------
 // Step 1: Drop existing collections (clean slate)
 // ----------------------------------------------------------
 db.products.drop();
 db.orders.drop();
 db.customers.drop();
-
----
 
 // ----------------------------------------------------------
 // Step 2: Insert Products (50 documents)
@@ -79,8 +75,6 @@ db.products.insertMany([
   { _id: "PROD050", name: "Conference Speakerphone", category: "Electronics", subcategory: "Audio", price: 149.99, stock: 50, rating: 4.6, tags: ["conference", "speakerphone", "usb"], vendor: "AudioTech", warehouse: "eastus", createdAt: ISODate("2025-11-10") }
 ]);
 
----
-
 // ----------------------------------------------------------
 // Step 3: Insert Customers (30 documents)
 // ----------------------------------------------------------
@@ -116,8 +110,6 @@ db.customers.insertMany([
   { _id: "CUST029", name: "Clara Mitchell", email: "clara@example.com", region: "westus", tier: "premium", totalSpent: 2650.00, orderCount: 13, joinedAt: ISODate("2024-03-25"), preferences: { categories: ["Electronics", "Furniture"], notifications: true } },
   { _id: "CUST030", name: "Derek Phillips", email: "derek@example.com", region: "eastus", tier: "standard", totalSpent: 260.00, orderCount: 2, joinedAt: ISODate("2025-01-05"), preferences: { categories: ["Furniture"], notifications: false } }
 ]);
-
----
 
 // ----------------------------------------------------------
 // Step 4: Insert Orders (80 documents)
@@ -205,17 +197,11 @@ db.orders.insertMany([
   { _id: "ORD080", customerId: "CUST007", items: [{ productId: "PROD031", name: "Mesh Office Chair Basic", quantity: 1, price: 159.99 }, { productId: "PROD027", name: "Foot Rest Under Desk", quantity: 1, price: 34.99 }, { productId: "PROD029", name: "Anti-Fatigue Standing Mat", quantity: 1, price: 49.99 }], total: 244.97, status: "delivered", region: "eastus", paymentMethod: "paypal", orderDate: ISODate("2025-06-02"), deliveredAt: ISODate("2025-06-07") }
 ]);
 
----
-
 // ----------------------------------------------------------
 // Step 5: Verify the data
 // ----------------------------------------------------------
 db.products.countDocuments()
 
----
-
 db.customers.countDocuments()
-
----
 
 db.orders.countDocuments()
