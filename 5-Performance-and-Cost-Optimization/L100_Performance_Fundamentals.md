@@ -262,7 +262,7 @@ A compound index stores multiple fields together in a sorted B-tree, so the quer
 > - **S**ort fields next (fields used in `.sort()`)
 > - **R**ange fields last (fields with `$gt`, `$lt`, `$gte`, `$lte`, `$in`)
 >
-> For the full ESR deep-dive with examples, see [L200: Advanced Optimization](L200_Cost_Optimization.md).
+> For the full ESR deep-dive with examples, see [L200: Advanced Optimization](L200_Performance_and_Cost_Optimization.md).
 
 ---
 
@@ -518,7 +518,7 @@ Every index has a cost:
 - Use `$indexStats` to identify indexes that are rarely used and consider dropping them
 - For low-frequency queries (e.g., monthly reports), a brief COLLSCAN may be acceptable
 
-> 🔗 **Next step:** For advanced compound index design including the full ESR rule, range query optimization, and index intersection, see [L200: Advanced Optimization](L200_Cost_Optimization.md).
+> 🔗 **Next step:** For advanced compound index design including the full ESR rule, range query optimization, and index intersection, see [L200: Advanced Optimization](L200_Performance_and_Cost_Optimization.md).
 
 ---
 

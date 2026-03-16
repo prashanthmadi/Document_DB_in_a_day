@@ -18,7 +18,7 @@
 
 - ✅ Completed [Step 0: Setup & Sample Data](00_Setup_and_Sample_Data.md)
 - ✅ Read [L100: Performance Fundamentals](L100_Performance_Fundamentals.md)
-- ✅ Read [L200: Advanced Optimization & Cost Strategies](L200_Cost_Optimization.md)
+- ✅ Read [L200: Advanced Optimization & Cost Strategies](L200_Performance_and_Cost_Optimization.md)
 - ✅ Azure subscription with an active DocumentDB cluster
 - ✅ VSCode with the **DocumentDB extension** installed and connected
 
@@ -366,7 +366,7 @@ START: "My database is slow or capacity is running low"
 > 4. Create the recommended indexes
 > 5. **Re-measure latency and CPU** after optimization
 >
-> In most cases, adding the right indexes resolves the performance issue without any scaling costs. This is the philosophy behind the [L200: Advanced Optimization](L200_Cost_Optimization.md) module — and it applies even more critically before committing to horizontal scaling, which requires upfront shard key design and cannot be easily undone.
+> In most cases, adding the right indexes resolves the performance issue without any scaling costs. This is the philosophy behind the [L200: Advanced Optimization](L200_Performance_and_Cost_Optimization.md) module — and it applies even more critically before committing to horizontal scaling, which requires upfront shard key design and cannot be easily undone.
 
 ---
 

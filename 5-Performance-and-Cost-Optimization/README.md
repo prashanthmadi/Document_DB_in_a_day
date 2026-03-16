@@ -61,7 +61,7 @@ Core performance concepts for Azure DocumentDB.
 
 ---
 
-### 📗 [L200: Advanced Optimization & Cost Strategies](L200_Cost_Optimization.md)
+### 📗 [L200: Advanced Optimization & Cost Strategies](L200_Performance_and_Cost_Optimization.md)
 **Duration:** 20–30 minutes | **Level:** L200
 
 Advanced query optimization and cost management.
@@ -123,7 +123,7 @@ Distributed data and scaling decision framework.
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
-│  L200: Cost Optimization         │  ← Advanced strategies & ESR rule
+│  L200: Performance & Cost Optimization         │  ← Advanced strategies & ESR rule
 └──────────────┬───────────────────┘
                │
 ┌──────────────▼───────────────────┐
@@ -145,11 +145,11 @@ Distributed data and scaling decision framework.
 ## 📂 File Structure
 
 ```
-5. Performance and Cost Optimization/
+5-Performance-and-Cost-Optimization/
 ├── README.md                          ← You are here
 ├── 00_Setup_and_Sample_Data.md        ← One-time data setup
 ├── L100_Performance_Fundamentals.md   ← L100 concepts module (incl. compound index patterns)
-├── L200_Cost_Optimization.md          ← L200 concepts module
+├── L200_Performance_and_Cost_Optimization.md          ← L200 concepts module
 ├── L300_Index_Advisor_and_HPS.md      ← L300: Index Advisor & High Performance Storage
 ├── L300_Sharding_and_Scaling.md       ← L300: Sharding & Scaling Strategies
 ├── Lab_Hands_On.md                    ← Consolidated hands-on lab (all exercises)

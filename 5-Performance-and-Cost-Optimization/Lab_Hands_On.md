@@ -19,7 +19,7 @@ In this lab, you will apply the concepts from L100 and L200 in a single cohesive
 
 - ✅ Completed [Step 0: Setup & Sample Data](00_Setup_and_Sample_Data.md)
 - ✅ Read [L100: Performance Fundamentals](L100_Performance_Fundamentals.md)
-- ✅ Read [L200: Advanced Optimization & Cost Strategies](L200_Cost_Optimization.md)
+- ✅ Read [L200: Advanced Optimization & Cost Strategies](L200_Performance_and_Cost_Optimization.md)
 - ✅ VSCode with DocumentDB extension connected to your cluster
 
 ---
